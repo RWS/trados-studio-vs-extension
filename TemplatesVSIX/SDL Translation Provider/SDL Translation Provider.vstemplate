@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>SDL Translation Provider (2019)</Name>
+    <Description>This project enables you to create custom translation memory providers for SDL Trados Studio.</Description>
+    <Icon>SDL Translation Provider.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>5450EE83-E50C-41C9-AE32-E3FE78F2B4E2</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>SDL Translation Provider</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTranslationProvider.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTranslationProviderFactory.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTranslationProviderLanguageDirection.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTranslationProviderWinFormsUI.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\PluginProperties.cs">PluginProperties.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="PluginResources.resx">PluginResources.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="pluginpackage.manifest.xml">pluginpackage.manifest.xml</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="55EB68BF-6752-4EF6-B251-111469A1372B">
+      <package id="Sdl.Core.PluginFramework" version="1.8.0" />
+      <package id="Sdl.Core.PluginFramework.Build" version="15.1.0" />
+    </packages>
+  </WizardData>
+</VSTemplate>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplatesVSIX", "TemplatesVSIX.csproj", "{225B1893-816D-4FFF-8A06-ECE189FB1582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL Terminology Provider", "SDL Terminology Provider\SDL Terminology Provider.csproj", "{A55BE5A5-6ABE-44D4-A3D3-FE0FF2879D06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL Custom Batch Task", "SDL Custom Batch Task\SDL Custom Batch Task.csproj", "{B50B23FD-89CA-40F2-9238-22718BE19DC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL Trados Studio", "SDL Trados Studio\SDL Trados Studio.csproj", "{4FB789FF-DB33-440B-89EC-5FF49D430E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL Translation Provider", "SDL Translation Provider\SDL Translation Provider.csproj", "{6CD94677-B468-4608-B7EB-40F097A51098}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplatesVSIXUnitTest", "TemplatesVSIXUnitTest\TemplatesVSIXUnitTest.csproj", "{AA9C0D29-5E5A-4245-9C33-D12666D237B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{225B1893-816D-4FFF-8A06-ECE189FB1582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225B1893-816D-4FFF-8A06-ECE189FB1582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225B1893-816D-4FFF-8A06-ECE189FB1582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225B1893-816D-4FFF-8A06-ECE189FB1582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55BE5A5-6ABE-44D4-A3D3-FE0FF2879D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55BE5A5-6ABE-44D4-A3D3-FE0FF2879D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55BE5A5-6ABE-44D4-A3D3-FE0FF2879D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55BE5A5-6ABE-44D4-A3D3-FE0FF2879D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B50B23FD-89CA-40F2-9238-22718BE19DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50B23FD-89CA-40F2-9238-22718BE19DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50B23FD-89CA-40F2-9238-22718BE19DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50B23FD-89CA-40F2-9238-22718BE19DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB789FF-DB33-440B-89EC-5FF49D430E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB789FF-DB33-440B-89EC-5FF49D430E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB789FF-DB33-440B-89EC-5FF49D430E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB789FF-DB33-440B-89EC-5FF49D430E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD94677-B468-4608-B7EB-40F097A51098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD94677-B468-4608-B7EB-40F097A51098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD94677-B468-4608-B7EB-40F097A51098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD94677-B468-4608-B7EB-40F097A51098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA9C0D29-5E5A-4245-9C33-D12666D237B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9C0D29-5E5A-4245-9C33-D12666D237B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9C0D29-5E5A-4245-9C33-D12666D237B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9C0D29-5E5A-4245-9C33-D12666D237B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {507FDA99-2326-4460-855C-E72047380CFC}
+	EndGlobalSection
+EndGlobal
