@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>SDL Trados Studio (2019)</Name>
+    <Description>This project enables you to extend or customize the user interface, or create custom functionalities for SDL Trados Studio.</Description>
+    <Icon>SDL Trados Studio.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>36CB8B6E-61DE-41EB-84E8-257FB8B79077</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>SDL Trados Studio</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyCustomTradosStudio.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\PluginProperties.cs">PluginProperties.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="PluginResources.resx">PluginResources.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="pluginpackage.manifest.xml">pluginpackage.manifest.xml</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="55EB68BF-6752-4EF6-B251-111469A1372B">
+      <package id="Sdl.Core.PluginFramework" version="1.8.0" />
+      <package id="Sdl.Core.PluginFramework.Build" version="15.1.0" />
+    </packages>
+  </WizardData>
+</VSTemplate>
