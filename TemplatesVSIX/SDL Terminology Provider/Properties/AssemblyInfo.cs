@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SDL")]
 [assembly: AssemblyProduct("SDL Terminology Provider")]
-[assembly: AssemblyCopyright("Copyright © 2018 SDL. All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2020 SDL. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
