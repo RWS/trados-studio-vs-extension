@@ -15,14 +15,14 @@ namespace TemplatesVSIXUnitTest
             var service = new HintPathPatch("16");
 
             var reference = Substitute.For<IReference>();
-            reference.HintPath.Returns(@"..\..\..\..\Program Files (x86)\SDL\SDL Trados Studio\Studio15\Sdl.Desktop.IntegrationApi.dll");
+            reference.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio15\Sdl.Desktop.IntegrationApi.dll");
 
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference });
 
             service.PatchProject(project);
 
-            Assert.AreEqual(@"..\..\..\..\Program Files (x86)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
+            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
         }
 
         [TestMethod]
