@@ -78,10 +78,14 @@
       <Private>True</Private>
       <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.ProjectAutomation.Settings.dll</HintPath>
     </Reference>
-    <Reference Include="Sdl.Terminology.TerminologyProvider.Core, Version=16.0.0.0, Culture=neutral, PublicKeyToken=c28cdb26c445c888, processorArchitecture=MSIL">
+	  <Reference Include="Sdl.Terminology.TerminologyProvider.Core">
+		  <Private>True</Private>
+		  <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Terminology.TerminologyProvider.Core.dll</HintPath>
+	  </Reference>
+    <!--<Reference Include="Sdl.Terminology.TerminologyProvider.Core, Version=16.0.0.0, Culture=neutral, PublicKeyToken=c28cdb26c445c888, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Sdl.Terminology.TerminologyProvider.Core.dll</HintPath>
-    </Reference>
+    </Reference>-->
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
