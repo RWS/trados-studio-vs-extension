@@ -101,12 +101,8 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Packages\Sdl.Core.PluginFramework.1.8.0.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Sdl.Core.PluginFramework.Build.15.1.0.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <Content Include="Packages\sdl.core.pluginframework.2.0.0.nupkg" />
+    <None Include="Packages\sdl.core.pluginframework.build.16.0.0.nupkg" />
     <None Include="Packages\SDLKeys.2.0.0\tools\sdl.snk" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>

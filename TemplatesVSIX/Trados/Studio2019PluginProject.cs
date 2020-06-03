@@ -14,7 +14,7 @@ namespace TemplatesVSIX.Trados
                 new TargetFrameworkPatch("v4.8"),
                 new HintPathPatch("16"),
                 new DeploymentPathPatch("16"),
-                new PluginFrameworkPatch("1.8.0", "15.1.0") //TODO:Update with the latest version from NuGet once is released
+                new PluginFrameworkPatch("2.0.0", "16.0.0") //TODO:Update with the latest version from NuGet once is released
             );
         }
 
