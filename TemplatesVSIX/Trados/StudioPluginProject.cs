@@ -32,10 +32,6 @@ namespace TemplatesVSIX.Trados
                 var packagesConfigSalvageable = new Backup(packagesConfig as ISalvageable);
                 packagesSaveResult = await packagesConfigSalvageable.SaveAsync(_packagesConfig);
             }
-            else
-            {
-                
-            }
 
             return projectSaveResult || packagesSaveResult;
         }
