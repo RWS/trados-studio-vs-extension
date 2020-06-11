@@ -89,6 +89,11 @@
     <None Include="MyTranslationProvider.cs" />
     <None Include="MyTranslationProviderFactory.cs" />
     <Compile Include="PluginProperties.cs" />
+    <EmbeddedResource Include="PluginResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PluginResources.resx</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,7 +110,10 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PluginResources.resx" />
+    <EmbeddedResource Include="PluginResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PluginResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="pluginpackage.manifest.xml" />
