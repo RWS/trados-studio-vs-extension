@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="55EB68BF-6752-4EF6-B251-111469A1372B" Version="1.4" Language="en-US" Publisher="SDL" />
+    <Identity Id="55EB68BF-6752-4EF6-B251-111469A1372B" Version="1.5" Language="en-US" Publisher="SDL" />
     <DisplayName>Trados Studio templates for Visual Studio</DisplayName>
     <Description xml:space="preserve">Visual Studio templates for SDL Trados Studio 2019.
 
