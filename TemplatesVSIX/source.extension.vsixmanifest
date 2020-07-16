@@ -17,7 +17,6 @@ Copyright © 2019 SDL. All rights reserved.</Description>
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-    <Dependency d:Source="Installed" Id="Microsoft.VisualStudio.MPF.16.0" DisplayName="Visual Studio MPF 16.0" Version="[16.0,17.0)" />
     <Dependency d:Source="Installed" d:ProjectName="SDL Custom Batch Task" Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" Version="[14.0,15.0)" />
   </Dependencies>
   <Prerequisites>
