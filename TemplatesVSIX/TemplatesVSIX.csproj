@@ -102,12 +102,12 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Packages\sdl.core.pluginframework.2.0.0.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Packages\sdl.core.pluginframework.build.16.0.1.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="Packages\SDLKeys.2.0.0\tools\sdl.snk" />
     <None Include="source.extension.vsixmanifest">

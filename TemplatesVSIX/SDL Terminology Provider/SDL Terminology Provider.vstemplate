@@ -29,7 +29,7 @@
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
   <WizardData>
-    <packages repository="extension" repositoryId="55EB68BF-6752-4EF6-B251-111469A1372B">
+    <packages repository="extension" repositoryId="829d11b0-cae5-4938-aad6-c8366b63fef5">
       <package id="Sdl.Core.PluginFramework" version="2.0.0" />
       <package id="Sdl.Core.PluginFramework.Build" version="16.0.1" />
     </packages>
