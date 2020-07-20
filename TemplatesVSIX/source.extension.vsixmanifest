@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="55EB68BF-6752-4EF6-B251-111469A1372B" Version="1.4" Language="en-US" Publisher="SDL" />
-        <DisplayName>Trados Studio templates for Visual Studio</DisplayName>
-        <Description xml:space="preserve">Visual Studio templates for SDL Trados Studio 2021.
+  <Metadata>
+    <Identity Id="829d11b0-cae5-4938-aad6-c8366b63fef5" Version="2.4" Language="en-US" Publisher="SDL" />
+    <DisplayName>Trados Studio templates for Visual Studio</DisplayName>
+    <Description xml:space="preserve">Visual Studio templates for SDL Trados Studio 2021.
 
 Copyright © 2020 SDL. All rights reserved.</Description>
-        <MoreInfo>http://appstore.sdl.com/language/developers</MoreInfo>
-        <License>SDL_Trados_Studio_SDK_10b.rtf</License>
-        <Icon>TradosStudio-components.ico</Icon>
-        <PreviewImage>TradosStudio-components.ico</PreviewImage>
-        <Tags>Translation, Trados Studio, Plugin, App Development, Customization</Tags>
-    </Metadata>
-    <Installation>
-        <InstallationTarget Version="[15.0,17.0)" Id="Microsoft.VisualStudio.Community" />
-    </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-        <Dependency d:Source="Installed" d:ProjectName="SDL Custom Batch Task" Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" Version="[14.0,15.0)" />
-    </Dependencies>
-    <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,17.0)" DisplayName="Visual Studio core editor" />
-        <Prerequisite Id="Microsoft.VisualStudio.Component.Roslyn.LanguageServices" Version="[15.0,17.0)" DisplayName="C# and Visual Basic" />
-    </Prerequisites>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Custom Batch Task" d:TargetPath="|SDL Custom Batch Task;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Terminology Provider" d:TargetPath="|SDL Terminology Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Trados Studio" d:TargetPath="|SDL Trados Studio;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Translation Provider" d:TargetPath="|SDL Translation Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-    </Assets>
+    <MoreInfo>http://appstore.sdl.com/language/developers</MoreInfo>
+    <License>SDL_Trados_Studio_SDK_10b.rtf</License>
+    <Icon>TradosStudio-components.ico</Icon>
+    <PreviewImage>TradosStudio-components.ico</PreviewImage>
+    <Tags>Translation, Trados Studio, Plugin, App Development, Customization</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Version="[15.0,17.0)" Id="Microsoft.VisualStudio.Community" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency d:Source="Installed" d:ProjectName="SDL Custom Batch Task" Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" Version="[14.0,15.0)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,17.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.Roslyn.LanguageServices" Version="[15.0,17.0)" DisplayName="C# and Visual Basic" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Custom Batch Task" d:TargetPath="|SDL Custom Batch Task;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Terminology Provider" d:TargetPath="|SDL Terminology Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Trados Studio" d:TargetPath="|SDL Trados Studio;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Translation Provider" d:TargetPath="|SDL Translation Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+  </Assets>
 </PackageManifest>
