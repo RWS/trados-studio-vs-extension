@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace $safeprojectname$
 {
-    class MyCustomBatchTaskSettingsControl : UserControl, ISettingsAware<MyCustomBatchTaskSettings>
+    class MyCustomBatchTaskSettingsControl : UserControl, IUISettingsControl, ISettingsAware<MyCustomBatchTaskSettings>
     {
         public MyCustomBatchTaskSettings Settings
         {
