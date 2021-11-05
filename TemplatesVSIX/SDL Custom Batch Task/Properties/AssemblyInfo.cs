@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SDL")]
 [assembly: AssemblyProduct("SDL Custom Batch Task")]
-[assembly: AssemblyCopyright("Copyright © 2020 SDL. All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2011 - 2021 SDL as part of the RWS Holdings Plc group of companies (\"RWS Group\")")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
