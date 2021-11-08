@@ -5,7 +5,7 @@
     <Description>This project is used to enable different terminology providers for SDL Trados Studio.</Description>
     <Icon>SDL Terminology Provider.ico</Icon>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>3DD10BAB-2FB3-41BA-AE4D-33CAFC018F0E</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

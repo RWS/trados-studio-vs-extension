@@ -1,4 +1,5 @@
 ﻿using Sdl.Desktop.IntegrationApi;
+using Sdl.Desktop.IntegrationApi.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

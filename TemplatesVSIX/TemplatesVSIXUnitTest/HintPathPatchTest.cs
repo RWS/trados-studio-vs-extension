@@ -120,7 +120,7 @@ namespace TemplatesVSIXUnitTest
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference1, reference2 });
 
-            service.PatchProject(null);
+            service.PatchProject(project);
 
             Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference1.HintPath, "Hint path for reference 1 not valid");
             Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.dll", reference2.HintPath, "Hint path for reference 2 not valid");

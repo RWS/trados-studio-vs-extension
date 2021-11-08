@@ -5,7 +5,7 @@
     <Description>This project enables you to extend or customize the user interface, or create custom functionalities for SDL Trados Studio.</Description>
     <Icon>SDL Trados Studio.ico</Icon>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>36CB8B6E-61DE-41EB-84E8-257FB8B79077</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
