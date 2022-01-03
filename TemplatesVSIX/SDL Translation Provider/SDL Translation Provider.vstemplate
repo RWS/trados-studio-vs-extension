@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>SDL Translation Provider (2021)</Name>
-    <Description>This project enables you to create custom translation memory providers for SDL Trados Studio.</Description>
+    <Name>RWS Translation Provider (2021)</Name>
+    <Description>This project enables you to create custom translation memory providers for Trados Studio.</Description>
     <Icon>SDL Translation Provider.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>5450EE83-E50C-41C9-AE32-E3FE78F2B4E2</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SDL Translation Provider</DefaultName>
+    <DefaultName>RWS Translation Provider</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>

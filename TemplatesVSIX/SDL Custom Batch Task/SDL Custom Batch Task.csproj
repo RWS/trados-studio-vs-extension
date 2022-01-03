@@ -21,8 +21,8 @@
     <ProjectGuid>{B50B23FD-89CA-40F2-9238-22718BE19DC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SDL_Custom_Batch_Task</RootNamespace>
-    <AssemblyName>SDL Custom Batch Task</AssemblyName>
+    <RootNamespace>RWS_Custom_Batch_Task</RootNamespace>
+    <AssemblyName>RWS Custom Batch Task</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>

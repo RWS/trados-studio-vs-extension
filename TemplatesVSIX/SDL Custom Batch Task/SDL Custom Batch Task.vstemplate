@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>SDL Custom Batch Task (2021)</Name>
-    <Description>This project is used to prepare workflows that have certain tasks such as pre-translation, analysis and more. You can also create your own custom tasks that can be included in your workflows for SDL Trados Studio.</Description>
+    <Name>RWS Custom Batch Task (2021)</Name>
+    <Description>This project is used to prepare workflows that have certain tasks such as pre-translation, analysis and more. You can also create your own custom tasks that can be included in your workflows for Trados Studio.</Description>
     <Icon>SDL Custom Batch Task.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>4BF8DD8C-71BA-4A34-AA6B-A990A21C60A0</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SDL Custom Batch Task</DefaultName>
+    <DefaultName>RWS Custom Batch Task</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>

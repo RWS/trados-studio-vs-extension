@@ -21,8 +21,8 @@
     <ProjectGuid>{4FB789FF-DB33-440B-89EC-5FF49D430E55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SDL_Trados_Studio</RootNamespace>
-    <AssemblyName>SDL Trados Studio</AssemblyName>
+    <RootNamespace>RWS_Trados_Studio</RootNamespace>
+    <AssemblyName>RWS Trados Studio</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>

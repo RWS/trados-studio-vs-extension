@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>SDL Trados Studio (2021)</Name>
-    <Description>This project enables you to extend or customize the user interface, or create custom functionalities for SDL Trados Studio.</Description>
+    <Name>RWS Trados Studio (2021)</Name>
+    <Description>This project enables you to extend or customize the user interface, or create custom functionalities for Trados Studio.</Description>
     <Icon>SDL Trados Studio.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>36CB8B6E-61DE-41EB-84E8-257FB8B79077</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SDL Trados Studio</DefaultName>
+    <DefaultName>RWS Trados Studio</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
