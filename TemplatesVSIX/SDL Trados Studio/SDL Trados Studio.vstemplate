@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>RWS Trados Studio (2021)</Name>
+    <Name>Trados Studio (2021)</Name>
     <Description>This project enables you to extend or customize the user interface, or create custom functionalities for Trados Studio.</Description>
     <Icon>SDL Trados Studio.ico</Icon>
     <ProjectType>CSharp</ProjectType>
@@ -9,7 +9,7 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>36CB8B6E-61DE-41EB-84E8-257FB8B79077</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>RWS Trados Studio</DefaultName>
+    <DefaultName>Trados Studio</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>

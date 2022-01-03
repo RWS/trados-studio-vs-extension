@@ -21,8 +21,8 @@
     <ProjectGuid>{6CD94677-B468-4608-B7EB-40F097A51098}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RWS_Translation_Provider</RootNamespace>
-    <AssemblyName>RWS Translation Provider</AssemblyName>
+    <RootNamespace>Trados_Translation_Provider</RootNamespace>
+    <AssemblyName>Trados Translation Provider</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
