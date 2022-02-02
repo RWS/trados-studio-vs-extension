@@ -54,26 +54,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sdl.Core.Globalization">
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Core.Globalization.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Sdl.Core.PluginFramework">
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Core.PluginFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Trados\Trados Studio\Studio17Master_Beta\Sdl.Core.PluginFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Sdl.LanguagePlatform.Core">
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.LanguagePlatform.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Sdl.LanguagePlatform.TranslationMemory">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.LanguagePlatform.TranslationMemory.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.LanguagePlatform.TranslationMemoryApi">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.LanguagePlatform.TranslationMemoryApi.dll</HintPath>
-    </Reference>
+	<Reference Include="Sdl.Core.Globalization">
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.Core.Globalization.dll</HintPath>
+	  <Private>True</Private>
+	</Reference>
+	<Reference Include="Sdl.LanguagePlatform.Core">
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.LanguagePlatform.Core.dll</HintPath>
+	  <Private>True</Private>
+	</Reference>
+	<Reference Include="Sdl.LanguagePlatform.TranslationMemory">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.LanguagePlatform.TranslationMemory.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.LanguagePlatform.TranslationMemoryApi">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.LanguagePlatform.TranslationMemoryApi.dll</HintPath>
+	</Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />

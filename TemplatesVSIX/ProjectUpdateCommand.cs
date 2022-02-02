@@ -84,7 +84,7 @@ namespace TemplatesVSIX
         private async Task<bool> UpdateProject(string projectFile)
         {
             _progress.ReportProjectUpdateStarted(projectFile);
-            var project = new Trados.Studio2019PluginProject(projectFile);
+            var project = new Trados.StudioWRPluginProject(projectFile);
             try
             {
                 var wasUpdated = await project.Update();
