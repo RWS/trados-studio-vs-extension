@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <SccProjectName>
     </SccProjectName>
@@ -21,8 +21,8 @@
     <ProjectGuid>{4FB789FF-DB33-440B-89EC-5FF49D430E55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SDL_Trados_Studio</RootNamespace>
-    <AssemblyName>SDL Trados Studio</AssemblyName>
+    <RootNamespace>Trados_Studio</RootNamespace>
+    <AssemblyName>Trados Studio</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
@@ -55,45 +55,44 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sdl.Core.PluginFramework">
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Core.PluginFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Trados\Trados Studio\Studio17Master_Beta\Sdl.Core.PluginFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Sdl.Desktop.IntegrationApi">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.Desktop.IntegrationApi.Extensions">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.FileTypeSupport.Framework.Core">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.FileTypeSupport.Framework.Implementation">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.FileTypeSupport.Framework.Implementation.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.ProjectAutomation.Core">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.ProjectAutomation.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.ProjectAutomation.FileBased">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.ProjectAutomation.FileBased.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.ProjectAutomation.Settings">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.ProjectAutomation.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.TranslationStudioAutomation.IntegrationApi.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi.Extensions">
-      <Private>True</Private>
-      <HintPath>$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.TranslationStudioAutomation.IntegrationApi.Extensions.dll</HintPath>
-    </Reference>
+	<Reference Include="Sdl.Desktop.IntegrationApi">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.Desktop.IntegrationApi.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.Desktop.IntegrationApi.Extensions">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.Desktop.IntegrationApi.Extensions.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.FileTypeSupport.Framework.Core">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.FileTypeSupport.Framework.Implementation">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.FileTypeSupport.Framework.Implementation.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.ProjectAutomation.Core">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.ProjectAutomation.Core.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.ProjectAutomation.FileBased">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.ProjectAutomation.FileBased.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.ProjectAutomation.Settings">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.ProjectAutomation.Settings.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.TranslationStudioAutomation.IntegrationApi.dll</HintPath>
+	</Reference>
+	<Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi.Extensions">
+	  <Private>True</Private>
+	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Master_Beta\Sdl.TranslationStudioAutomation.IntegrationApi.Extensions.dll</HintPath>
+	</Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />

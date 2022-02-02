@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>SDL Terminology Provider (2021)</Name>
-    <Description>This project is used to enable different terminology providers for SDL Trados Studio.</Description>
+    <Name>Trados Terminology Provider (2021)</Name>
+    <Description>This project is used to enable different terminology providers for Trados Studio.</Description>
     <Icon>SDL Terminology Provider.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>3DD10BAB-2FB3-41BA-AE4D-33CAFC018F0E</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SDL Terminology Provider</DefaultName>
+    <DefaultName>Trados Terminology Provider</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
