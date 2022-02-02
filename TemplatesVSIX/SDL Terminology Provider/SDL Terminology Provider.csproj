@@ -21,8 +21,8 @@
     <ProjectGuid>{A55BE5A5-6ABE-44D4-A3D3-FE0FF2879D06}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SDL_Terminology_Provider</RootNamespace>
-    <AssemblyName>SDL Terminology Provider</AssemblyName>
+    <RootNamespace>Trados_Terminology_Provider</RootNamespace>
+    <AssemblyName>Trados Terminology Provider</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
