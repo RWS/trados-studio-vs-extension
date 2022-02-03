@@ -10,7 +10,7 @@ variables:
 - name: buildConfiguration
   value: Release
 - name: buildPlatform
-  value: AnyCpu
+  value: 'Any CPU'
 - name: Version.MajorMinor
   value: 17.0
 - name: Version.Revision
