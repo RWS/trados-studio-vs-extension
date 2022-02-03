@@ -57,18 +57,22 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VsixToolsSignVsix@2
+- task: CopyFiles@2
   inputs:
-    CertFile: $(CurrentCertificateName)
+    SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
+    Contents: '*.vsix'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: VsixToolsSignVsix@2
+  displayName: 'Sign Vsix'
+  inputs:
+    CertFile: '$(CurrentCertificateName)'
+    CertificatePath: $(Build.SourcesDirectory)
     Password: '$(SigningSecret)'
-    Username: '$(SigningClientId)'
-    PAT: '$(artifactPat)'
-    SHA1: $(SDLPLCAuthenticodeKey)
-    TimestampURL: 'http://timestamp.digicert.com'
-    TimestampAlgorithm: 'sha512'
-    WorkingDirectory: 'TemplatesVSIX\bin\$(buildConfiguration)'
+    SHA1: '$(SDLPLCAuthenticodeKey)'
+    WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: 'TemplatesVSIX\bin\$(buildConfiguration)'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     artifact: 'TradosStudioTemplate'
     publishLocation: 'pipeline'
