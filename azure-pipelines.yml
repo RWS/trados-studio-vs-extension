@@ -17,7 +17,15 @@ variables:
   value: $[counter(variables['Version.Revision'], 0)]
 - name: StudioProductIdentifier
   value: 17
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
 steps:
+- task: PowerShell@2
+  displayName: 'Set x86path'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
+
 - task: DownloadPipelineArtifact@2
   displayName: 'Download Trados Studio Binaries Pipeline Artifact'
   inputs:
@@ -42,7 +50,7 @@ steps:
 - task: VsixToolsUpdateVersion@2
   inputs:
     FileName: 'TemplatesVSIX/source.extension.vsixmanifest'
-    VersionNumber: '$(Version.MajorMinor)$(Version.Revision)'
+    VersionNumber: '$(Version.MajorMinor).$(Version.Revision)'
 - task: VSBuild@1
   inputs:
     solution: 'TemplatesVSIX/TemplatesVSIX.sln'
