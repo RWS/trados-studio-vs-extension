@@ -165,10 +165,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="$(userprofile)\.nuget\packages\Microsoft.VisualStudio.SDK.Analyzers\15.8.33\analyzers\cs\Microsoft.VisualStudio.SDK.Analyzers.dll" />
-    <Analyzer Include="$(userprofile)\.nuget\packages\Microsoft.VisualStudio.Threading.Analyzers\15.8.122\analyzers\cs\Microsoft.VisualStudio.Threading.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime">
       <Version>17.0.32112.339</Version>
     </PackageReference>
