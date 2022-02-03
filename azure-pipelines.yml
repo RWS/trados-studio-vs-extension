@@ -59,6 +59,7 @@ steps:
 
 - task: VsixToolsSignVsix@2
   inputs:
+    CertFile: $(CurrentCertificateName)
     Password: '$(SigningSecret)'
     Username: '$(SigningClientId)'
     PAT: '$(artifactPat)'
