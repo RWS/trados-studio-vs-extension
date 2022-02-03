@@ -27,7 +27,8 @@ steps:
     artifactName: 'binaries'
     buildVersionToDownload: 'latestFromBranch'
     targetPath: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
-    runBranch: 'master'
+    runBranch: 'refs/heads/master'
+    tags: 'Package'
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
