@@ -58,10 +58,12 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: CopyFiles@2
+  displayName: 'copy vsix file'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: VsixToolsSignVsix@2
   displayName: 'Sign Vsix'
   inputs:
@@ -69,6 +71,10 @@ steps:
     CertificatePath: $(Build.SourcesDirectory)
     Password: '$(SigningSecret)'
     SHA1: '$(SDLPLCAuthenticodeKey)'
+    Username: $(SigningClientId)
+    PAT: $(artifactPat)
+    TimestampURL: $(KeyVaultUrl)
+    TimestampAlgorithm: SHA512
     WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishPipelineArtifact@1
