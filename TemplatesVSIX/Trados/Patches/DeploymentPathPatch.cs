@@ -15,7 +15,7 @@ namespace TemplatesVSIX.Trados.Patches
         {
             project.AddProperty(
                 "PluginDeploymentPath",
-                $@"$(AppData)\Sdl\Sdl Trados Studio\{_newVersion}\Plugins");
+                $@"$(AppData)\Trados\Trados Studio\17\{_newVersion}\Plugins");
         }
 
         public void PatchPackages(IPackagesConfig packageConfig)

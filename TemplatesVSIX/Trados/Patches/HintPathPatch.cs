@@ -30,7 +30,7 @@ namespace TemplatesVSIX.Trados.Patches
         {
             reference.HintPath = Regex.Replace(
                 reference.HintPath,
-                @"(\\SDL\\SDL Trados Studio\\)Studio\d{1,2}",
+                @"(\\Trados\\Trados Studio\\)Studio\d{1,2}",
                 "$1Studio" + _newVersion);
         }
     }
