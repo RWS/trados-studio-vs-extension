@@ -1,0 +1,45 @@
+
+trigger:
+- none
+
+pool:
+  vmImage: windows-2022
+
+variables:
+- group: 'SDLPLC Authenticode Credentials'
+- name: buildConfiguration
+  value: Release
+- name: buildPlatform
+  value: 'Any CPU'
+- name: Version.MajorMinor
+  value: 17.0
+- name: Version.Revision
+  value: $[counter(variables['Version.Revision'], 0)]
+steps:
+
+- task: NuGetToolInstaller@0
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: 'TemplatesVSIX/TemplatesVSIX.sln'
+    feedsToUse: 'select'
+    vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
+    includeNuGetOrg: false
+
+- task: VsixToolsUpdateVersion@2
+  inputs:
+    FileName: 'TemplatesVSIX/source.extension.vsixmanifest'
+    VersionNumber: '$(Version.MajorMinor)$(Version.Revision)'
+- task: VSBuild@1
+  inputs:
+    solution: 'TemplatesVSIX/TemplatesVSIX.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'TemplatesVSIX\bin\$(buildConfiguration)'
+    artifact: 'TradosStudioTemplate'
+    publishLocation: 'pipeline'
