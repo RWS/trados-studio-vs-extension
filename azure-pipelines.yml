@@ -71,11 +71,6 @@ steps:
     CertificatePath: $(Build.SourcesDirectory)
     Password: '$(SigningSecret)'
     SHA1: '$(SDLPLCAuthenticodeKey)'
-    Username: $(SigningClientId)
-    PAT: $(artifactPat)
-    TimestampURL: $(KeyVaultUrl)
-    TimestampAlgorithm: SHA512
-    WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishPipelineArtifact@1
   inputs:
