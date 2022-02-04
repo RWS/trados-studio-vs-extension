@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Trados Terminology Provider (2021)</Name>
+    <Name>Trados Terminology Provider (Studio17)</Name>
     <Description>This project is used to enable different terminology providers for Trados Studio.</Description>
     <Icon>SDL Terminology Provider.ico</Icon>
     <ProjectType>CSharp</ProjectType>
