@@ -17,6 +17,9 @@ variables:
   value: $[counter(variables['Version.Revision'], 0)]
 - name: StudioProductIdentifier
   value: 17
+- name: InstallerDisplayName
+  value: 'TradosStudio17Templates.vsix'
+
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
 steps:
 - task: PowerShell@2
@@ -37,6 +40,7 @@ steps:
     targetPath: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
     runBranch: 'refs/heads/master'
     tags: 'Package'
+
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
@@ -51,6 +55,7 @@ steps:
   inputs:
     FileName: 'TemplatesVSIX/source.extension.vsixmanifest'
     VersionNumber: '$(Version.MajorMinor).$(Version.Revision)'
+
 - task: VSBuild@1
   inputs:
     solution: 'TemplatesVSIX/TemplatesVSIX.sln'
@@ -64,13 +69,10 @@ steps:
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: VsixToolsSignVsix@2
-  displayName: 'Sign Vsix'
-  inputs:
-    CertFile: '$(CurrentCertificateName)'
-    CertificatePath: $(Build.SourcesDirectory)
-    Password: '$(SigningSecret)'
-    SHA1: '$(SDLPLCAuthenticodeKey)'
+- template: tasks/sign-artifacts/sign-single-artifact.yml
+  parameters:
+    fileToSign: '$(Build.ArtifactStagingDirectory)\$(InstallerDisplayName)'
+    description: '$(InstallerDisplayName)'
 
 - task: PublishPipelineArtifact@1
   inputs:
