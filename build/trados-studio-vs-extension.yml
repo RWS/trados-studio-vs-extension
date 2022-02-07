@@ -51,11 +51,28 @@ steps:
     vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
     includeNuGetOrg: false
 
+- task: UniversalPackages@0
+  displayName: 'signing tools'
+  inputs:
+    vstsFeed: '35b7ee7d-77cc-45b7-97ec-af5915143636'
+    vstsFeedPackage: 'ab6a7eee-f4d3-4e0a-8e9a-906cce713a29'
+    vstsPackageVersion: '1.1.0'
+
 - task: VSBuild@1
   inputs:
     solution: 'TemplatesVSIX/TemplatesVSIX.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: PowerShell@2
+  displayName: 'get pfx'
+  inputs:
+    targetType: filePath
+    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
+    arguments: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)\TradosStudio17Templates.vsix'
+  env:
+    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
+    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
 
 - task: CopyFiles@2
   displayName: 'copy vsix file'
@@ -63,15 +80,6 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-- task: PowerShell@2
-  displayName: 'get pfx'
-  inputs:
-    targetType: filePath
-    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
-  env:
-    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
-    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
 
 - task: PublishPipelineArtifact@1
   inputs:
