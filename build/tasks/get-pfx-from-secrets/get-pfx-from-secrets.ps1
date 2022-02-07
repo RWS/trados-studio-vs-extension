@@ -43,5 +43,5 @@ else
 }
 $ToolPath=[System.IO.Path]::GetFullPath("C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe");
 
-& $ToolPath sign /v /f $pfxPath  /p $password /fd sha1 $fileToSign
+& $ToolPath sign /v /f $pfxPath  /p $password /fd sha1 $fileToSign  /sha1 "58 00 af 17 d0 a4 1d 51  0d 4e 17 10 c3 2f 24 cb"
 
