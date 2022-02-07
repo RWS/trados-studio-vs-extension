@@ -53,14 +53,6 @@ steps:
 
 - template: tasks/sign-artifacts/prepare-signing.yml
 
-- task: PowerShell@2
-  displayName: 'Get signing certificate'
-  inputs:
-    filePath: build/tasks/sign-artifacts/get-cert-locally.ps1
-  env:
-    SDLPLCAuthenticode: '$(SDLPLCAuthenticode)'
-    CurrentThumbprint: '$(CurrentThumbprint)'
-
 - task: VsixToolsUpdateVersion@2
   inputs:
     FileName: 'TemplatesVSIX/source.extension.vsixmanifest'
@@ -78,6 +70,15 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PowerShell@2
+  displayName: 'get pfx'
+  inputs:
+    targetType: filePath
+    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
+  env:
+    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
+    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
 
 - task: VsixToolsSignVsix@2
   inputs:
