@@ -79,6 +79,12 @@ steps:
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+- task: VsixToolsSignVsix@2
+  inputs:
+    Password: '$(SDLPLCAuthenticodeKey)'
+    SHA1: '$(CurrentThumbprint)'
+    WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
+
 - task: PowerShell@2
   displayName: 'clean certificate'
   condition: always()
