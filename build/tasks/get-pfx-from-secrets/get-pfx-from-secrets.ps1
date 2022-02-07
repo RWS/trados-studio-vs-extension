@@ -35,6 +35,10 @@ else
     
     [System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
     write-host "Extracted $pfxPath from Azure keyvault"
-}
 
+
+}
+$ToolPath=[System.IO.Path]::GetFullPath("vsixsigntool.exe");
+$filetosignpath = [System.IO.Path]::GetFullPath("$psscriptroot\..\..\..\TemplatesVSIX\bin\release\TradosStudio17Templates.vsix");
+& $ToolPath sign /f $pfxPath /sha1 "<sha1 bytes>" /p $password /fd sha1 $filetosignpath
 

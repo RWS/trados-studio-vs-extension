@@ -51,13 +51,6 @@ steps:
     vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
     includeNuGetOrg: false
 
-- template: tasks/sign-artifacts/prepare-signing.yml
-
-- task: VsixToolsUpdateVersion@2
-  inputs:
-    FileName: 'TemplatesVSIX/source.extension.vsixmanifest'
-    VersionNumber: '$(Version.MajorMinor).$(Version.Revision)'
-
 - task: VSBuild@1
   inputs:
     solution: 'TemplatesVSIX/TemplatesVSIX.sln'
@@ -79,12 +72,6 @@ steps:
   env:
     SDLPLCAuthenticode: $(SDLPLCAuthenticode)
     SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
-
-- task: VsixToolsSignVsix@2
-  inputs:
-    Password: '$(SDLPLCAuthenticodeKey)'
-    SHA1: '$(CurrentThumbprint)'
-    WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishPipelineArtifact@1
   inputs:
