@@ -86,14 +86,6 @@ steps:
     SHA1: '$(CurrentThumbprint)'
     WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
 
-- task: PowerShell@2
-  displayName: 'clean certificate'
-  condition: always()
-  inputs:
-    filePath: build/tasks/sign-artifacts/clean-certificate.ps1
-  env:
-    CurrentThumbprint: $(CurrentThumbprint)
-
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
