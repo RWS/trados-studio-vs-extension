@@ -1,6 +1,6 @@
 #copy the password and pfx from azure keyvault variables.
 param(
-[string]$fileToSign = "$PSScriptRoot\signme.exe"
+[string]$fileToSign = "D:\a\1\s\TemplatesVSIX\bin\Release\TradosStudio17Templates.vsix"
 )
 
 $pfxPath = "$psscriptroot\..\..\..\tools\SDLPLCAuthenticode.pfx"
@@ -43,5 +43,5 @@ else
 }
 $ToolPath=[System.IO.Path]::GetFullPath("C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe");
 
-& $ToolPath sign /v /f $pfxPath  /p $password /fd sha1 $fileToSign  /sha1 "e6 86 21 9c"
+& $ToolPath sign /v /f $pfxPath  /p $password  $fileToSign  /sha1 $env:CurrentThumbprint
 
