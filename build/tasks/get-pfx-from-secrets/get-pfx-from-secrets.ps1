@@ -41,6 +41,6 @@ else
 
 
 }
-$ToolPath="C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe");
+$ToolPath = "C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe"
 & $ToolPath sign /v /f $pfxPath /p $password /sha1 $env:CurrentThumbprint "D:\a\1\s\TemplatesVSIX\bin\Release\TradosStudio17Templates.vsix"
 
