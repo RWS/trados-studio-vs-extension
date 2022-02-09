@@ -1,0 +1,91 @@
+
+trigger:
+  branches:
+    include:
+     - master
+
+pool:
+  vmImage: windows-2019
+
+variables:
+- group: 'SDLPLC Authenticode Credentials'
+- name: buildConfiguration
+  value: Release
+- name: buildPlatform
+  value: 'Any CPU'
+- name: Version.MajorMinor
+  value: 16.0
+- name: Version.Revision
+  value: $[counter(variables['Version.Revision'], 0)]
+- name: StudioProductIdentifier
+  value: 16
+- name: InstallerDisplayName
+  value: 'TradosStudio2021Templates.vsix'
+
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
+steps:
+- task: PowerShell@2
+  displayName: 'Set x86path'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
+
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download Trados Studio Binaries Pipeline Artifact'
+  inputs:
+    buildType: 'specific'
+    project: 'TradosStudio'
+    definition: '1258'
+    artifactName: 'binaries'
+    buildVersionToDownload: 'latestFromBranch'
+    targetPath: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
+    runBranch: 'refs/heads/Release/16.2'
+    tags: 'Package,Released' 
+
+- task: NuGetToolInstaller@0
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: 'TemplatesVSIX/TemplatesVSIX.sln'
+    feedsToUse: 'select'
+    vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
+    includeNuGetOrg: false
+
+- task: UniversalPackages@0
+  displayName: 'signing tools'
+  inputs:
+    vstsFeed: '35b7ee7d-77cc-45b7-97ec-af5915143636'
+    vstsFeedPackage: 'ab6a7eee-f4d3-4e0a-8e9a-906cce713a29'
+    vstsPackageVersion: '1.1.0'
+
+- task: VSBuild@1
+  inputs:
+    solution: 'TemplatesVSIX/TemplatesVSIX.sln'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  displayName: 'copy vsix file'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
+    Contents: '*.vsix'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PowerShell@2
+  displayName: 'get pfx'
+  inputs:
+    targetType: filePath
+    filePath: './build/tasks/sign-vsix-package/sign-vsix-package.ps1'
+    arguments: '$(Build.ArtifactStagingDirectory)\$(InstallerDisplayName)'
+  env:
+    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
+    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
+    CurrentThumbprint: $(CurrentThumbprint)
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'TradosStudioTemplate'
+    publishLocation: 'pipeline'
