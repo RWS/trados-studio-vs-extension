@@ -41,7 +41,7 @@ steps:
     buildVersionToDownload: 'latestFromBranch'
     targetPath: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
     runBranch: 'refs/heads/Release/16.2'
-    tags: 'Package,Released' 
+    tags: 'Package' 
 
 - task: NuGetToolInstaller@0
 
