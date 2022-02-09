@@ -44,5 +44,5 @@ else
 $ToolPath = "C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe"
 $fileToSignPath = $fileToSign
 
-& $ToolPath sign /v /f "D:\a\1\s\tools\SDLPLCAuthenticode.pfx" /p $password /sha1 $env:CurrentThumbprint "$fileToSignPath"
+& $ToolPath sign /v /f "D:\a\1\s\tools\SDLPLCAuthenticode.pfx" /p $password /fd sha1 /sha1 $env:CurrentThumbprint "$fileToSignPath"
 
