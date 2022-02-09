@@ -64,22 +64,22 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: PowerShell@2
-  displayName: 'get pfx'
-  inputs:
-    targetType: filePath
-    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
-    arguments: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)\TradosStudio17Templates.vsix'
-  env:
-    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
-    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
-
 - task: CopyFiles@2
   displayName: 'copy vsix file'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\TemplatesVSIX\bin\$(buildConfiguration)'
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PowerShell@2
+  displayName: 'get pfx'
+  inputs:
+    targetType: filePath
+    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
+    arguments: '$(Build.ArtifactStagingDirectory)\TradosStudio17Templates.vsix'
+  env:
+    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
+    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
 
 - task: PublishPipelineArtifact@1
   inputs:
