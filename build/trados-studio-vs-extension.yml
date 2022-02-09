@@ -1,6 +1,8 @@
 
 trigger:
-- none
+  branches:
+    include:
+     - studio17
 
 pool:
   vmImage: windows-2022
@@ -51,12 +53,12 @@ steps:
     vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
     includeNuGetOrg: false
 
-- template: tasks/sign-artifacts/prepare-signing.yml
-
-- task: VsixToolsUpdateVersion@2
+- task: UniversalPackages@0
+  displayName: 'signing tools'
   inputs:
-    FileName: 'TemplatesVSIX/source.extension.vsixmanifest'
-    VersionNumber: '$(Version.MajorMinor).$(Version.Revision)'
+    vstsFeed: '35b7ee7d-77cc-45b7-97ec-af5915143636'
+    vstsFeedPackage: 'ab6a7eee-f4d3-4e0a-8e9a-906cce713a29'
+    vstsPackageVersion: '1.1.0'
 
 - task: VSBuild@1
   inputs:
@@ -75,16 +77,12 @@ steps:
   displayName: 'get pfx'
   inputs:
     targetType: filePath
-    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
+    filePath: './build/tasks/sign-vsix-package/sign-vsix-package.ps1'
+    arguments: '$(Build.ArtifactStagingDirectory)\TradosStudio17Templates.vsix'
   env:
     SDLPLCAuthenticode: $(SDLPLCAuthenticode)
     SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
-
-- task: VsixToolsSignVsix@2
-  inputs:
-    Password: '$(SDLPLCAuthenticodeKey)'
-    SHA1: '$(CurrentThumbprint)'
-    WorkingDirectory: '$(Build.ArtifactStagingDirectory)'
+    CurrentThumbprint: $(CurrentThumbprint)
 
 - task: PublishPipelineArtifact@1
   inputs:
