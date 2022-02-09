@@ -39,10 +39,12 @@ else
     [System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
     write-host "Extracted $pfxPath from Azure keyvault"
 
-
 }
-$ToolPath = "C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe"
-$fileToSignPath = $fileToSign
+$ToolPath=[System.IO.Path]::GetFullPath("C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe");
 
-& $ToolPath sign /v /f "D:\a\1\s\tools\SDLPLCAuthenticode.pfx" /p $password /fd sha1 /sha1 $env:CurrentThumbprint "$fileToSignPath"
+$fileToSignPath = [System.IO.Path]::GetFullPath("$fileToSign"); 
+
+write-host "$fileToSignPath"
+
+& $ToolPath sign /v /f "$pfxPath" /p "$password" /sha1 "$env:CurrentThumbprint" "$fileToSignPath"
 
