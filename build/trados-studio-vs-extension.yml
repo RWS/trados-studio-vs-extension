@@ -80,6 +80,7 @@ steps:
   env:
     SDLPLCAuthenticode: $(SDLPLCAuthenticode)
     SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
+    CurrentThumbprint: $(CurrentThumbprint)
 
 - task: PublishPipelineArtifact@1
   inputs:
