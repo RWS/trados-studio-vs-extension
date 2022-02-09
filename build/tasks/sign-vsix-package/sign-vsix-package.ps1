@@ -1,6 +1,6 @@
 #copy the password and pfx from azure keyvault variables.
 param(
-[string]$fileToSign = "D:\a\1\s\TemplatesVSIX\bin\Release\TradosStudio17Templates.vsix"
+[string]$fileToSign = "TradosStudio17Templates.vsix"
 )
 
 $pfxPath = "$psscriptroot\..\..\..\tools\SDLPLCAuthenticode.pfx"
@@ -40,11 +40,8 @@ else
     write-host "Extracted $pfxPath from Azure keyvault"
 
 }
-$ToolPath=[System.IO.Path]::GetFullPath("C:\Users\VssAdministrator\.nuget\packages\Microsoft.VSSDK.Vsixsigntool\16.2.29116.78\tools\vssdk\vsixsigntool.exe");
 
-$fileToSignPath = [System.IO.Path]::GetFullPath("$fileToSign"); 
+$ToolPath = Get-ChildItem -Path $env:USERPROFILE\.nuget\packages\ -Recurse -Filter 'vsixsigntool.exe' | Where-Object {$_.FullName -like '*vsixsigntool*'} | Select-Object FullName
 
-write-host "$fileToSignPath"
-
-& $ToolPath sign /v /f "$pfxPath" /p "$password" /sha1 "$env:CurrentThumbprint" "$fileToSignPath"
+& $ToolPath sign /v /f "$pfxPath" /p "$password" /sha1 "$env:CurrentThumbprint" "$fileToSign"
 

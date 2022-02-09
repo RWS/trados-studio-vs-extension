@@ -1,6 +1,8 @@
 
 trigger:
-- none
+  branches:
+    include:
+     - studio17
 
 pool:
   vmImage: windows-2022
@@ -75,7 +77,7 @@ steps:
   displayName: 'get pfx'
   inputs:
     targetType: filePath
-    filePath: './build/tasks/get-pfx-from-secrets/get-pfx-from-secrets.ps1'
+    filePath: './build/tasks/sign-vsix-package/sign-vsix-package.ps1'
     arguments: '$(Build.ArtifactStagingDirectory)\TradosStudio17Templates.vsix'
   env:
     SDLPLCAuthenticode: $(SDLPLCAuthenticode)
