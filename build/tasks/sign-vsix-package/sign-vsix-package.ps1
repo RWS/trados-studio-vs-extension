@@ -43,5 +43,5 @@ else
 
 $ToolPath = Get-ChildItem -Path $env:USERPROFILE\.nuget\packages\ -Recurse -Filter 'vsixsigntool.exe' | Where-Object {$_.FullName -like '*vsixsigntool*'} | Select-Object FullName
 
-& $ToolPath sign /v /f "$pfxPath" /p "$password" /sha1 "$env:CurrentThumbprint" "$fileToSign"
+& $ToolPath.FullName sign /v /f "$pfxPath" /p "$password" /sha1 "$env:CurrentThumbprint" "$fileToSign"
 
