@@ -74,11 +74,11 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PowerShell@2
-  displayName: 'get pfx'
+  displayName: 'sign vsix package'
   inputs:
     targetType: filePath
     filePath: './build/tasks/sign-vsix-package/sign-vsix-package.ps1'
-    arguments: '$(Build.ArtifactStagingDirectory)\TradosStudio17Templates.vsix'
+    arguments: '$(Build.ArtifactStagingDirectory)\$(InstallerDisplayName)'
   env:
     SDLPLCAuthenticode: $(SDLPLCAuthenticode)
     SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
