@@ -2,7 +2,7 @@
 trigger:
   branches:
     include:
-     - studio17
+     - main
 
 pool:
   vmImage: windows-2022
