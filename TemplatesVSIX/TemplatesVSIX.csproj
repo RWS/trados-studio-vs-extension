@@ -105,11 +105,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\sdl.core.pluginframework.2.1.0.nupkg">
+    <Content Include="$(USERPROFILE)\.nuget\packages\sdl.core.pluginframework\2.1.0\sdl.core.pluginframework.2.1.0.nupkg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\sdl.core.pluginframework.build.16.1.0.nupkg">
+    <Content Include="$(USERPROFILE)\.nuget\Packages\sdl.core.pluginframework.build\16.1.0\sdl.core.pluginframework.build.16.1.0.nupkg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
