@@ -30,8 +30,8 @@
   </WizardExtension>
   <WizardData>
 	<packages repository="extension" repositoryId="829d11b0-cae5-4938-aad6-c8366b63fef5">
-		<package id="Sdl.Core.PluginFramework" version="2.0.0" />
-		<package id="Sdl.Core.PluginFramework.Build" version="16.0.1" />
+		<package id="Sdl.Core.PluginFramework" version="2.1.0" />
+		<package id="Sdl.Core.PluginFramework.Build" version="16.1.0" />
 	</packages>
   </WizardData>
 </VSTemplate>
