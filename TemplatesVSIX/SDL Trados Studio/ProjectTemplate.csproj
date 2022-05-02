@@ -32,9 +32,6 @@
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
   <ItemGroup>
-	<Reference Include="Sdl.Core.PluginFramework">
-	  <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.Core.PluginFramework.dll</HintPath>
-	</Reference>
     <Reference Include="Sdl.Desktop.IntegrationApi">
       <Private>True</Private>
       <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.Desktop.IntegrationApi.dll</HintPath>
