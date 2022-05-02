@@ -94,7 +94,6 @@
       <ResourceName>Menus.ctmenu</ResourceName>
       <SubType>Designer</SubType>
     </VSCTCompile>
-    <Content Include="ReadMe.txt" />
     <Content Include="Resources\ProjectUpdateCommand.png" />
     <Content Include="Resources\ProjectUpdateCommandPackage.ico" />
     <Content Include="SDL_Trados_Studio_SDK_10b.rtf">
@@ -178,8 +177,8 @@
     <PackageReference Include="Microsoft.VSSDK.Vsixsigntool">
       <Version>16.2.29116.78</Version>
     </PackageReference>
-	<PackageReference Include="Sdl.PluginFramework">
-	  <Version>2.3.12</Version>
+    <PackageReference Include="Sdl.PluginFramework">
+      <Version>2.3.12</Version>
     </PackageReference>
     <PackageReference Include="SDLKeys">
       <Version>2.0.0</Version>
