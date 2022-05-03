@@ -5,7 +5,7 @@ namespace TemplatesVSIX.MsBuild
     internal interface IProject
     {
         IEnumerable<Error> Errors { get; }
-        IEnumerable<Import> Imports { get; }
+        IEnumerable<ItemGroup> ItemGroups { get; }
         IEnumerable<IReference> References { get; }
         string TargetVersion { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TemplatesVSIX.MsBuild
 {
-    internal class Include
+    public class Include
     {
         public Include(string includeString)
         {

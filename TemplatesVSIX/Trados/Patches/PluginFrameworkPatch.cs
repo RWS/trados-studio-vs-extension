@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 using TemplatesVSIX.MsBuild;
 
 namespace TemplatesVSIX.Trados.Patches
@@ -33,53 +32,19 @@ namespace TemplatesVSIX.Trados.Patches
 
         public void PatchProject(IProject project)
         {
+            var itemGroups = project.ItemGroups.ToList();
+            var pluginFrameworkPackageReferences =
+                itemGroups
+                .Where(ig => ig.PackageReferences
+                .Any(pr => pr.Include.Name.Contains("Sdl.Core.PluginFramework")))
+                .SelectMany(ig => ig.PackageReferences);
 
-            bool ContainsPluginFrameworkBuild(string text) =>
-                text.IndexOf("Sdl.Core.PluginFramework.Build", comparision) >= 0;
-
-            project.References
-                .Where(r => r.Include.Name.StartsWith("Sdl.Core.PluginFramework", comparision))
-                .ToList()
-                .ForEach(UpdateCorePluginFrameworkReferences);
-
-            project.Imports
-                .Where(i => ContainsPluginFrameworkBuild(i.Project))
-                .ToList()
-                .ForEach(UpdateCorePluginFrameworkImports);
-
-            project.Errors
-                .Where(e => ContainsPluginFrameworkBuild(e.Condition))
-                .ToList()
-                .ForEach(UpdateCorePluginFrameworkErrors);
-        }
-
-        private string ReplacePluginFrameworkBuildVersion(string toBeReplaced)
-        {
-            return Regex.Replace(
-                            toBeReplaced,
-                            @"(Sdl\.Core\.PluginFramework\.Build)\.\d{1,2}\.\d{1,2}\.\d{1,2}",
-                            "$1." + _pluginFrameworkBuildVersion);
-        }
-
-        private void UpdateCorePluginFrameworkErrors(Error error)
-        {
-            error.Condition = ReplacePluginFrameworkBuildVersion(error.Condition);
-            error.Text = ReplacePluginFrameworkBuildVersion(error.Text);
-        }
-
-        private void UpdateCorePluginFrameworkImports(Import import)
-        {
-            import.Project = ReplacePluginFrameworkBuildVersion(import.Project);
-            import.Condition = ReplacePluginFrameworkBuildVersion(import.Condition);
-        }
-
-        private void UpdateCorePluginFrameworkReferences(IReference reference)
-        {
-            reference.Include = new Include(reference.Include.Name);
-            reference.HintPath = Regex.Replace(
-                reference.HintPath,
-                @"(Sdl\.Core\.PluginFramework)\.\d\.\d\.\d",
-                "$1." + _pluginFrameworkVersion);
+            foreach (var reference in pluginFrameworkPackageReferences)
+            {
+                reference.Version =
+                    reference.Include.Name == "Sdl.Core.PluginFramework" ?
+                    _pluginFrameworkVersion : _pluginFrameworkBuildVersion;
+            }
         }
     }
 }

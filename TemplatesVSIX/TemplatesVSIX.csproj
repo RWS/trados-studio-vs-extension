@@ -64,13 +64,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MsBuild\Error.cs" />
-    <Compile Include="MsBuild\Import.cs" />
+    <Compile Include="MsBuild\ItemGroup.cs" />
     <Compile Include="MsBuild\Include.cs" />
     <Compile Include="MsBuild\IPackagesConfig.cs" />
     <Compile Include="MsBuild\IProject.cs" />
     <Compile Include="MsBuild\IReference.cs" />
     <Compile Include="MsBuild\ISalvageable.cs" />
     <Compile Include="MsBuild\Package.cs" />
+    <Compile Include="MsBuild\PackageReference.cs" />
     <Compile Include="MsBuild\PackagesConfig.cs" />
     <Compile Include="MsBuild\Backup.cs" />
     <Compile Include="ProjectUpdateProgress.cs" />

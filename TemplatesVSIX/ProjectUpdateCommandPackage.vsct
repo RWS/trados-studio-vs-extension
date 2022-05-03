@@ -63,7 +63,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>Update selected projects to Trados Studio 2021</ButtonText>
+          <ButtonText>Update selected projects to Trados Studio 2022</ButtonText>
         </Strings>
       </Button>
     </Buttons>

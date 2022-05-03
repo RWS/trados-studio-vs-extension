@@ -50,7 +50,7 @@ namespace TemplatesVSIX
             }
 
             _progress.ReportUpdateStarted();
-            var count = await UpdateProjects();
+            var count = await UpdateProjectsAsync();
             _progress.ReportUpdateComplete(count);
         }
 
@@ -70,18 +70,18 @@ namespace TemplatesVSIX
             }
         }
 
-        private async Task<int> UpdateProjects()
+        private async Task<int> UpdateProjectsAsync()
         {
             var count = 0;
             foreach (var projectFile in GetSelectedProjects())
             {
-                count += await UpdateProject(projectFile) ? 1 : 0;
+                count += await UpdateProjectAsync(projectFile) ? 1 : 0;
             }
 
             return count;
         }
 
-        private async Task<bool> UpdateProject(string projectFile)
+        private async Task<bool> UpdateProjectAsync(string projectFile)
         {
             _progress.ReportProjectUpdateStarted(projectFile);
             var project = new Trados.StudioWRPluginProject(projectFile);
