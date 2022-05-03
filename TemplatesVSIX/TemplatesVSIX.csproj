@@ -94,7 +94,6 @@
       <ResourceName>Menus.ctmenu</ResourceName>
       <SubType>Designer</SubType>
     </VSCTCompile>
-    <Content Include="ReadMe.txt" />
     <Content Include="Resources\ProjectUpdateCommand.png" />
     <Content Include="Resources\ProjectUpdateCommandPackage.ico" />
     <Content Include="SDL_Trados_Studio_SDK_10b.rtf">
@@ -105,11 +104,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\sdl.core.pluginframework.2.0.0.nupkg">
+    <Content Include="Packages\sdl.core.pluginframework.2.1.0.nupkg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\sdl.core.pluginframework.build.16.0.1.nupkg">
+    <Content Include="Packages\sdl.core.pluginframework.build.16.1.0.nupkg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
