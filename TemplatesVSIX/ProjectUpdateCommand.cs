@@ -1,9 +1,13 @@
 ﻿using Microsoft.VisualStudio.Shell;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using TemplatesVSIX.Studio;
 
 namespace TemplatesVSIX
@@ -62,6 +66,19 @@ namespace TemplatesVSIX
                 .ToArray();
         }
 
+        private List<string> GetSelectedProjectsManifests()
+        {
+            var projectPaths = _context
+                .GetSelectedFileNames();
+
+            var pluginManifests = new List<string>();
+            projectPaths
+                .ToList()
+                .ForEach(f => pluginManifests.Add(Regex.Replace(f, Path.GetFileName(f), "pluginpackage.manifest.xml")));
+
+            return pluginManifests;
+        }
+
         private void OnBeforeQueryStatus(object sender, EventArgs e)
         {
             if (sender is OleMenuCommand command)
@@ -78,7 +95,63 @@ namespace TemplatesVSIX
                 count += await UpdateProjectAsync(projectFile) ? 1 : 0;
             }
 
+            foreach (var manifest in GetSelectedProjectsManifests())
+            {
+                count += await UpdatePluginManifestAsync(manifest) ? 1 : 0;
+            }
+
             return count;
+        }
+
+        private async Task<bool> UpdatePluginManifestAsync(string manifest)
+        {
+            _progress.ReportProjectUpdateStarted(manifest);
+            try
+            {
+                var document = await GetPluginManifestAsync(manifest);
+                UpdateDocument(document);
+                await WritePluginManifestAsync(manifest, document);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                _progress.ReportErrorWhileUpdating(manifest, e);
+            }
+
+            return false;
+        }
+
+        private static async Task WritePluginManifestAsync(string manifest, XDocument document)
+        {
+            using (var stream = new StreamWriter(new FileStream(manifest, FileMode.Create), new UTF8Encoding(false)))
+            {
+                await stream.WriteAsync(document.ToString());
+            }
+        }
+
+        private static void UpdateDocument(XDocument document)
+        {
+            var requiredProductElement =
+                                document
+                                    .Descendants()
+                                    .FirstOrDefault(d => d.Name.LocalName == "RequiredProduct");
+
+            requiredProductElement.Attribute("name").Value = "TradosStudio";
+            requiredProductElement.Attribute("minversion").Value = "17.0";
+            requiredProductElement.Add(new XAttribute("maxversion", "17.9"));
+        }
+
+        private static async Task<XDocument> GetPluginManifestAsync(string manifest)
+        {
+            XDocument document;
+            using (var stream = new StreamReader(manifest))
+            {
+                var content = await stream.ReadToEndAsync();
+                document = XDocument.Parse(content, LoadOptions.PreserveWhitespace);
+            }
+
+            return document;
         }
 
         private async Task<bool> UpdateProjectAsync(string projectFile)

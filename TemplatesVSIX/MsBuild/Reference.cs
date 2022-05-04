@@ -24,6 +24,14 @@ namespace TemplatesVSIX.MsBuild
             }
         }
 
+        public void DeleteElement(string name)
+        {
+            _referenceElement
+                .Elements()
+                .FirstOrDefault(n => n.Name.LocalName == name)
+                ?.Remove();
+        }
+
         public string HintPath
         {
             get

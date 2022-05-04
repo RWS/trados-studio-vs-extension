@@ -77,7 +77,7 @@
     <Compile Include="ProjectUpdateProgress.cs" />
     <Compile Include="Trados\IStudioPluginPatch.cs" />
     <Compile Include="Trados\Patches\DeploymentPathPatch.cs" />
-    <Compile Include="Trados\Patches\HintPathPatch.cs" />
+    <Compile Include="Trados\Patches\ReferencePatch.cs" />
     <Compile Include="Trados\Patches\PluginFrameworkPatch.cs" />
     <Compile Include="Trados\Patches\TargetFrameworkPatch.cs" />
     <Compile Include="Trados\StudioWRPluginProject.cs" />
@@ -103,14 +103,6 @@
     </Content>
     <Content Include="TradosStudio-components.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\sdl.core.pluginframework.2.1.0.nupkg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\sdl.core.pluginframework.build.16.1.0.nupkg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="app.config" />

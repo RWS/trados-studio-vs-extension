@@ -4,11 +4,11 @@ using TemplatesVSIX.MsBuild;
 
 namespace TemplatesVSIX.Trados.Patches
 {
-    internal class HintPathPatch : IStudioPluginPatch
+    internal class ReferencePatch : IStudioPluginPatch
     {
         private readonly string _newVersion;
 
-        public HintPathPatch(string newVersion)
+        public ReferencePatch(string newVersion)
         {
             _newVersion = newVersion;
         }
@@ -17,7 +17,9 @@ namespace TemplatesVSIX.Trados.Patches
         {
             if (project != null && project.References != null)
             {
-                project.References.ToList()
+                project.References
+                    .Where(r => r.Include.Name.Contains("Sdl"))
+                    .ToList()
                     .ForEach(UpdateHintPath);
             }
         }
@@ -32,6 +34,9 @@ namespace TemplatesVSIX.Trados.Patches
                 reference.HintPath,
                 @"(\(ProgramFiles\)\\SDL\\SDL Trados Studio\\)Studio\d{1,2}",
                 @"(MSBuildProgramFiles32)\Trados\Trados Studio\Studio" + _newVersion);
+
+            reference.DeleteElement("Private");
+            reference.DeleteElement("SpecificVersion");
         }
     }
 }
