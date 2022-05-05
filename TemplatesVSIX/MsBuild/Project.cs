@@ -37,14 +37,14 @@ namespace TemplatesVSIX.MsBuild
             }
         }
 
-        public IEnumerable<Import> Imports
+        public IEnumerable<ItemGroup> ItemGroups
         {
             get
             {
                 return _document
                     .Descendants()
-                    .Where(d => d.Name.LocalName == nameof(Import))
-                    .Select(i => new Import(i))
+                    .Where(d => d.Name.LocalName == nameof(ItemGroup))
+                    .Select(i => new ItemGroup(i))
                     .ToArray();
             }
         }

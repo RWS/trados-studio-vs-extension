@@ -32,9 +32,9 @@ namespace TemplatesVSIX
                 WriteOutputLine($"> No changes required");
         }
 
-        public void ReportProjectUpdateStarted(string projectFile)
+        public void ReportProjectUpdateStarted(string file)
         {
-            WriteOutputLine($"Upgrading project '{projectFile}'");
+            WriteOutputLine($"Upgrading project '{file}'");
         }
 
         public void ReportUpdateComplete(int count)

@@ -54,24 +54,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sdl.FileTypeSupport.Framework.Core">
-      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.FileTypeSupport.Framework.Implementation">
-      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.FileTypeSupport.Framework.Implementation.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.ProjectAutomation.Core">
-      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.ProjectAutomation.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.ProjectAutomation.FileBased">
-      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.ProjectAutomation.FileBased.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.ProjectAutomation.Settings">
-      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.ProjectAutomation.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Sdl.Terminology.TerminologyProvider.Core">
-      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17\Sdl.Terminology.TerminologyProvider.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -84,7 +66,7 @@
     <None Include="MyTerminologyProviderViewerWinFormsUI.cs" />
     <None Include="MyTerminologyProvider.cs" />
     <None Include="MyTerminologyProviderFactory.cs" />
-    <Compile Include="PluginProperties.cs" />
+    <None Include="PluginProperties.cs" />
     <EmbeddedResource Include="PluginResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,17 +95,6 @@
   <ItemGroup>
     <Content Include="pluginpackage.manifest.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Sdl.Core.PluginFramework">
-      <Version>2.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sdl.PluginFramework">
-      <Version>2.3.12</Version>
-    </PackageReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  -->
 </Project>
