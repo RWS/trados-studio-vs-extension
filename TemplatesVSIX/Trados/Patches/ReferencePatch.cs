@@ -30,10 +30,8 @@ namespace TemplatesVSIX.Trados.Patches
 
         private void UpdateHintPath(IReference reference)
         {
-            reference.HintPath = Regex.Replace(
-                reference.HintPath,
-                @"(\(ProgramFiles\)\\SDL\\SDL Trados Studio\\)Studio\d{1,2}",
-                @"(MSBuildProgramFiles32)\Trados\Trados Studio\Studio" + _newVersion);
+            reference.HintPath =
+                $@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio{_newVersion}\{reference.Include.Name}.dll";
 
             reference.DeleteElement("Private");
             reference.DeleteElement("SpecificVersion");
