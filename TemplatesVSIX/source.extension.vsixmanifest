@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="829d11b0-cae5-4938-aad6-c8366b63fef5" Version="17.0.1" Language="en-US" Publisher="RWS" />
+        <Identity Id="3D390539-4A5C-4A0E-AAF8-2BCD8EA83FF1" Version="17.0.01" Language="en-US" Publisher="RWS" />
         <DisplayName>Trados Studio 17 templates for Visual Studio 2022</DisplayName>
         <Description xml:space="preserve">Visual Studio templates for  Trados Studio 17 Copyright © 2011 - 2022 SDL as part of the RWS Holdings Plc group of companies ("RWS Group")</Description>
         <MoreInfo>http://appstore.sdl.com/language/developers</MoreInfo>
@@ -11,17 +11,8 @@
         <Tags>Translation, Trados Studio, Plugin, App Development, Customization</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
-            <ProductArchitecture>x86</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
-            <ProductArchitecture>x86</ProductArchitecture>
-        </InstallationTarget>
         <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
             <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Pro">
-            <ProductArchitecture>x86</ProductArchitecture>
         </InstallationTarget>
         <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Pro">
             <ProductArchitecture>amd64</ProductArchitecture>
