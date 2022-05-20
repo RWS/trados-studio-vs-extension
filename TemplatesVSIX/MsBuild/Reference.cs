@@ -24,6 +24,11 @@ namespace TemplatesVSIX.MsBuild
             }
         }
 
+        public void DeleteReference()
+        {
+            _referenceElement.Remove();
+        }
+
         public void DeleteElement(string name)
         {
             _referenceElement

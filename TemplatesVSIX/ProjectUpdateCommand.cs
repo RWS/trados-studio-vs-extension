@@ -137,9 +137,18 @@ namespace TemplatesVSIX
                                     .Descendants()
                                     .FirstOrDefault(d => d.Name.LocalName == "RequiredProduct");
 
-            requiredProductElement.Attribute("name").Value = "TradosStudio";
-            requiredProductElement.Attribute("minversion").Value = "17.0";
-            requiredProductElement.Add(new XAttribute("maxversion", "17.9"));
+            SetAttributeValue(requiredProductElement, "name", "TradosStudio");
+            SetAttributeValue(requiredProductElement, "minversion", "17.0");
+            SetAttributeValue(requiredProductElement, "maxversion", "17.9");
+
+        }
+
+        private static void SetAttributeValue(XElement element, string attribute, string value)
+        {
+            if (element == null) return;
+
+            if (element.Attribute(attribute) == null) element.Add(new XAttribute(attribute, value));
+            else element.Attribute(attribute).Value = value;
         }
 
         private static async Task<XDocument> GetPluginManifestAsync(string manifest)

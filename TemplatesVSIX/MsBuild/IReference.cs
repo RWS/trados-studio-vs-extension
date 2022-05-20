@@ -7,5 +7,6 @@
         Include Include { get; set; }
 
         void DeleteElement(string name);
+        void DeleteReference();
     }
 }
