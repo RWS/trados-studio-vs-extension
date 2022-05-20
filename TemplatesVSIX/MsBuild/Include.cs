@@ -16,7 +16,7 @@ namespace TemplatesVSIX.MsBuild
             if (!items.Any())
                 throw new ArgumentException("The include string is invalid", nameof(includeString));
 
-            Name = items.First();
+            Name = items.FirstOrDefault();
             Properties = items.Skip(1)
                 .Select(s =>
                 {

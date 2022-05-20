@@ -15,13 +15,10 @@ namespace TemplatesVSIX.Trados.Patches
 
         public void PatchProject(IProject project)
         {
-            if (project != null && project.References != null)
-            {
-                project.References
-                    .Where(r => r.Include.Name.Contains("Sdl"))
-                    .ToList()
-                    .ForEach(UpdateHintPath);
-            }
+            project?.References
+                .Where(r => r.Include.Name.ToLower().Contains("sdl") || r.HintPath.ToLower().Contains("sdl"))
+                ?.ToList()
+                .ForEach(UpdateHintPath);
         }
 
         public void PatchPackages(IPackagesConfig packageConfig)
@@ -30,11 +27,18 @@ namespace TemplatesVSIX.Trados.Patches
 
         private void UpdateHintPath(IReference reference)
         {
-            reference.HintPath =
-                $@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio{_newVersion}\{reference.Include.Name}.dll";
+            if (reference.HintPath.Contains("PluginFramework"))
+            {
+                reference.DeleteReference();
+            }
+            else
+            {
+                reference.HintPath =
+                    $@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio{_newVersion}\{reference.Include.Name}.dll";
 
-            reference.DeleteElement("Private");
-            reference.DeleteElement("SpecificVersion");
+                reference.DeleteElement("Private");
+                reference.DeleteElement("SpecificVersion");
+            }
         }
     }
 }

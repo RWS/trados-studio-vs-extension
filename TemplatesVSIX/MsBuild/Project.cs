@@ -67,16 +67,16 @@ namespace TemplatesVSIX.MsBuild
             {
                 return _document
                         .Descendants()
-                        .First(d => d.Name.LocalName == TargetFrameworkVersionText)
+                        .FirstOrDefault(d => d.Name.LocalName == TargetFrameworkVersionText)?
                         .Value;
             }
             set
             {
                 var target = _document
                     .Descendants()
-                    .First(d => d.Name.LocalName == TargetFrameworkVersionText);
+                    .FirstOrDefault(d => d.Name.LocalName == TargetFrameworkVersionText);
 
-                target.Value = value;
+                if (target != null) target.Value = value;
             }
         }
 
@@ -103,8 +103,9 @@ namespace TemplatesVSIX.MsBuild
             {
                 var group = _document
                     .Descendants()
-                    .First(d => d.Name.LocalName == PropertyGroupText && d.Attribute("Condition") == null);
-                group.Add(new XElement(defaultNs + name, value));
+                    .FirstOrDefault(d => d.Name.LocalName == PropertyGroupText && d.Attribute("Condition") == null);
+
+                group?.Add(new XElement(defaultNs + name, value));
             }
         }
 
