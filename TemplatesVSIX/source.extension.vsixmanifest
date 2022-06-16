@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="b85d69ca-87cd-4c86-bc35-f52eed1c9dce" Version="2.7" Language="en-US" Publisher="RWS" />
+        <Identity Id="71B0E81E-69A2-4E4A-9DB2-74F5CA729035" Version="2.7" Language="en-US" Publisher="RWS" />
         <DisplayName>Trados Studio 16 templates for Visual Studio</DisplayName>
         <Description xml:space="preserve">Visual Studio templates for  Trados Studio 16.
 
