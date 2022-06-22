@@ -2,7 +2,7 @@
 trigger:
   branches:
     include:
-     - studio16
+     - studio16.1
 
 pool:
   vmImage: windows-2022
@@ -20,7 +20,7 @@ variables:
 - name: StudioProductIdentifier
   value: 16
 - name: InstallerDisplayName
-  value: 'TradosStudio2021Templates.vsix'
+  value: 'TradosStudio16Templates.vsix'
 
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
 steps:
