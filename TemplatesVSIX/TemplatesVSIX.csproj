@@ -28,7 +28,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TemplatesVSIX</RootNamespace>
-    <AssemblyName>TradosStudio2021Templates</AssemblyName>
+    <AssemblyName>TradosStudio16Templates</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
