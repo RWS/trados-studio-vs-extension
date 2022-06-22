@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="71B0E81E-69A2-4E4A-9DB2-74F5CA729035" Version="2.7" Language="en-US" Publisher="RWS" />
         <DisplayName>Trados Studio 16 templates for Visual Studio 2022</DisplayName>
-        <Description xml:space="preserve">Visual Studio templates for  Trados Studio 16.
+        <Description xml:space="preserve">Visual Studio 2022 templates for  Trados Studio 16.
 
 Copyright © 2011 - 2021 SDL as part of the RWS Holdings Plc group of companies ("RWS Group")</Description>
         <MoreInfo>http://appstore.sdl.com/language/developers</MoreInfo>
