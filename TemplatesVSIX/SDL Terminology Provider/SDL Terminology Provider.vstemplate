@@ -7,7 +7,7 @@
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>3DD10BAB-2FB3-41BA-AE4D-33CAFC018F0E</TemplateID>
+    <TemplateID>CB5AB7BA-F39D-429A-BCD0-B5E690A91AF2</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Trados Terminology Provider</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>

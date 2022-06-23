@@ -7,7 +7,7 @@
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>4BF8DD8C-71BA-4A34-AA6B-A990A21C60A0</TemplateID>
+    <TemplateID>91BABD95-796F-409D-9936-91E7F9FFF411</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Trados Custom Batch Task</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
