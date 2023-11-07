@@ -15,14 +15,15 @@ namespace TemplatesVSIXUnitTest
             var service = new ReferencePatch("16");
 
             var reference = Substitute.For<IReference>();
-            reference.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio15\Sdl.Desktop.IntegrationApi.dll");
+            reference.HintPath.Returns(@"$(MSBuildProgramFiles32)\SDL\SDL Trados Studio\Studio15\Sdl.Desktop.IntegrationApi.dll");
+            reference.Include = new Include("Sdl.Desktop.IntegrationApi");
 
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference });
 
             service.PatchProject(project);
 
-            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
+            Assert.AreEqual(@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
         }
 
         [TestMethod]
@@ -32,13 +33,14 @@ namespace TemplatesVSIXUnitTest
 
             var reference = Substitute.For<IReference>();
             reference.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio15\Sdl.Desktop.IntegrationApi.dll");
+            reference.Include = new Include("Sdl.Desktop.IntegrationApi");
 
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference });
 
             service.PatchProject(project);
 
-            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
+            Assert.AreEqual(@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
         }
 
         [TestMethod]
@@ -48,13 +50,14 @@ namespace TemplatesVSIXUnitTest
 
             var reference = Substitute.For<IReference>();
             reference.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio20\Sdl.Desktop.IntegrationApi.dll");
+            reference.Include = new Include("Sdl.Desktop.IntegrationApi");
 
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference });
 
             service.PatchProject(project);
 
-            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
+            Assert.AreEqual(@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
         }
 
         [TestMethod]
@@ -64,13 +67,14 @@ namespace TemplatesVSIXUnitTest
 
             var reference = Substitute.For<IReference>();
             reference.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio2\Sdl.Desktop.IntegrationApi.dll");
+            reference.Include = new Include("Sdl.Desktop.IntegrationApi");
 
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference });
 
             service.PatchProject(project);
 
-            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
+            Assert.AreEqual(@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference.HintPath);
         }
 
         [TestMethod]
@@ -113,17 +117,19 @@ namespace TemplatesVSIXUnitTest
 
             var reference1 = Substitute.For<IReference>();
             reference1.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio20\Sdl.Desktop.IntegrationApi.dll");
+            reference1.Include = new Include("Sdl.Desktop.IntegrationApi");
 
             var reference2 = Substitute.For<IReference>();
             reference2.HintPath.Returns(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio20\Sdl.Desktop.dll");
+            reference2.Include = new Include("Sdl.Desktop");
 
             var project = Substitute.For<IProject>();
             project.References.Returns(new List<IReference>() { reference1, reference2 });
 
             service.PatchProject(project);
 
-            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference1.HintPath, "Hint path for reference 1 not valid");
-            Assert.AreEqual(@"$(ProgramFiles)\SDL\SDL Trados Studio\Studio16\Sdl.Desktop.dll", reference2.HintPath, "Hint path for reference 2 not valid");
+            Assert.AreEqual(@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio16\Sdl.Desktop.IntegrationApi.dll", reference1.HintPath, "Hint path for reference 1 not valid");
+            Assert.AreEqual(@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio16\Sdl.Desktop.dll", reference2.HintPath, "Hint path for reference 2 not valid");
         }
     }
 }

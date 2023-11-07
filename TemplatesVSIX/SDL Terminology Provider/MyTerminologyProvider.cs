@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace $safeprojectname$
 {
-    class MyTerminologyProvider : AbstractTerminologyProvider
+    class MyTerminologyProvider : ITerminologyProvider
     {
-        public override IDefinition Definition
+        public Definition Definition
         {
             get
             {
@@ -17,7 +17,7 @@ namespace $safeprojectname$
             }
         }
 
-        public override string Description
+        public string Description
         {
             get
             {
@@ -25,7 +25,7 @@ namespace $safeprojectname$
             }
         }
 
-        public override string Name
+        public string Name
         {
             get
             {
@@ -33,7 +33,7 @@ namespace $safeprojectname$
             }
         }
 
-        public override Uri Uri
+        public Uri Uri
         {
             get
             {
@@ -41,22 +41,69 @@ namespace $safeprojectname$
             }
         }
 
-        public override IEntry GetEntry(int id)
+        public string Id => throw new NotImplementedException();
+
+        public TerminologyProviderType Type => throw new NotImplementedException();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        public bool SearchEnabled => throw new NotImplementedException();
+
+        public FilterDefinition ActiveFilter { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public bool IsInitialized => throw new NotImplementedException();
+
+        public void Dispose()
         {
             throw new NotImplementedException();
         }
 
-        public override IEntry GetEntry(int id, IEnumerable<ILanguage> languages)
+        public Entry GetEntry(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override IList<ILanguage> GetLanguages()
+        public Entry GetEntry(int id, IEnumerable<ILanguage> languages)
         {
             throw new NotImplementedException();
         }
 
-        public override IList<ISearchResult> Search(string text, ILanguage source, ILanguage destination, int maxResultsCount, SearchMode mode, bool targetRequired)
+        public IList<FilterDefinition> GetFilters()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<ILanguage> GetLanguages()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Initialize(TerminologyProviderCredential credential)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsProviderUpToDate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<SearchResult> Search(string text, ILanguage source, ILanguage destination, int maxResultsCount, SearchMode mode, bool targetRequired)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDefault(bool value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Uninitialize()
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
+using Sdl.Core.Globalization;
 using System.Windows.Forms;
 
 namespace $safeprojectname$
@@ -28,7 +28,7 @@ namespace $safeprojectname$
             }
         }
 
-        public IEntry SelectedTerm
+        public Entry SelectedTerm
         {
             get
             {
@@ -41,10 +41,14 @@ namespace $safeprojectname$
             }
         }
 
+        public bool CanAddTerm => throw new NotImplementedException();
+
+        public bool IsEditing => throw new NotImplementedException();
+
         public event EventHandler<EntryEventArgs> SelectedTermChanged;
         public event EventHandler TermChanged;
 
-        public void AddAndEditTerm(IEntry term, string source, string target)
+        public void AddAndEditTerm(Entry term, string source, string target)
         {
             throw new NotImplementedException();
         }
@@ -54,22 +58,32 @@ namespace $safeprojectname$
             throw new NotImplementedException();
         }
 
-        public void EditTerm(IEntry term)
+        public void CancelTerm()
         {
             throw new NotImplementedException();
         }
 
-        public void Initialize(ITerminologyProvider terminologyProvider, CultureInfo source, CultureInfo target)
+        public void EditTerm(Entry term)
         {
             throw new NotImplementedException();
         }
 
-        public void JumpToTerm(IEntry entry)
+        public void Initialize(ITerminologyProvider terminologyProvider, CultureCode source, CultureCode target)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void JumpToTerm(Entry entry)
         {
             throw new NotImplementedException();
         }
 
         public void Release()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveTerm()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Sdl.Core.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,12 +78,12 @@ namespace $safeprojectname$
             throw new NotImplementedException();
         }
 
-        public System.Globalization.CultureInfo SourceLanguage
+        public CultureCode SourceLanguage
         {
             get { throw new NotImplementedException(); }
         }
 
-        public System.Globalization.CultureInfo TargetLanguage
+        public CultureCode TargetLanguage
         {
             get { throw new NotImplementedException(); }
         }
