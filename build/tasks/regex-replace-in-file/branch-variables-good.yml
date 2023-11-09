@@ -1,0 +1,17 @@
+
+variables:
+- name: VersionGroup
+  value: 'smurf'
+#Set the library/variable group that this branch uses for version information
+
+- name: DefaultBuildVm
+  value: 'windows-latest'
+#windows-latest
+#windows-2019
+#vs2017-win2016
+#vs2015-win2012r2
+
+
+- name: VSVersion
+  value: latest
+# latest or use 16.0 for 2019, 15.0 for VS2017 etc.
