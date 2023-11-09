@@ -14,7 +14,7 @@ variables:
 - name: buildPlatform
   value: 'Any CPU'
 - name: Version.MajorMinor
-  value: 17.0
+  value: 17.2
 - name: Version.Revision
   value: $[counter(variables['Version.Revision'], 0)]
 - name: StudioProductIdentifier
@@ -59,6 +59,14 @@ steps:
     vstsFeed: '35b7ee7d-77cc-45b7-97ec-af5915143636'
     vstsFeedPackage: 'ab6a7eee-f4d3-4e0a-8e9a-906cce713a29'
     vstsPackageVersion: '1.1.0'
+
+- task: PowerShell@2
+  displayName: 'Apply version to vsix'
+  inputs:
+    pwsh: True
+    targetType: filePath
+    filePath: './build/tasks/version-assemblies/update-all-versions.ps1'
+    arguments: "$(Version.MajorMinor).$(Version.Revision)"
 
 - task: VSBuild@1
   inputs:
