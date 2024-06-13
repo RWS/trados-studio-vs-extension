@@ -14,13 +14,13 @@ variables:
 - name: buildPlatform
   value: 'Any CPU'
 - name: Version.MajorMinor
-  value: 17.2
+  value: 18.0
 - name: Version.Revision
   value: $[counter(variables['Version.Revision'], 0)]
 - name: StudioProductIdentifier
-  value: 17
+  value: 1
 - name: InstallerDisplayName
-  value: 'TradosStudio17Templates.vsix'
+  value: 'TradosStudio18Templates.vsix'
 
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
 steps:
@@ -40,7 +40,7 @@ steps:
     artifactName: 'binaries'
     buildVersionToDownload: 'latestFromBranch'
     targetPath: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
-    runBranch: 'refs/heads/master'
+    runBranch: 'refs/heads/Release/18.0.0'
     tags: 'Package'
 
 - task: NuGetToolInstaller@0

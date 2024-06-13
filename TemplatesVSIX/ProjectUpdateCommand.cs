@@ -138,8 +138,8 @@ namespace TemplatesVSIX
                                     .FirstOrDefault(d => d.Name.LocalName == "RequiredProduct");
 
             SetAttributeValue(requiredProductElement, "name", "TradosStudio");
-            SetAttributeValue(requiredProductElement, "minversion", "17.0");
-            SetAttributeValue(requiredProductElement, "maxversion", "17.9");
+            SetAttributeValue(requiredProductElement, "minversion", "18.0");
+            SetAttributeValue(requiredProductElement, "maxversion", "18.9");
 
         }
 

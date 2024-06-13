@@ -1,6 +1,6 @@
 #copy the password and pfx from azure keyvault variables.
 param(
-[string]$fileToSign = "TradosStudio17Templates.vsix"
+[string]$fileToSign = "TradosStudio18Templates.vsix"
 )
 
 $pfxPath = "$psscriptroot\..\..\..\tools\SDLPLCAuthenticode.pfx"

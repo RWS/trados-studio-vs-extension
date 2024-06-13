@@ -33,7 +33,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TemplatesVSIX</RootNamespace>
-    <AssemblyName>TradosStudio17Templates</AssemblyName>
+    <AssemblyName>TradosStudio18Templates</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
