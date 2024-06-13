@@ -18,7 +18,7 @@ variables:
 - name: Version.Revision
   value: $[counter(variables['Version.Revision'], 0)]
 - name: StudioProductIdentifier
-  value: 1
+  value: 18
 - name: InstallerDisplayName
   value: 'TradosStudio18Templates.vsix'
 
