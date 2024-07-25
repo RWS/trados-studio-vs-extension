@@ -81,16 +81,27 @@ steps:
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PowerShell@2
-  displayName: 'sign vsix package'
+- task: TrustedSigning@0
+  displayName: Sign with Trusted Signing
   inputs:
-    targetType: filePath
-    filePath: './build/tasks/sign-vsix-package/sign-vsix-package.ps1'
-    arguments: '$(Build.ArtifactStagingDirectory)\$(InstallerDisplayName)'
-  env:
-    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
-    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
-    CurrentThumbprint: $(CurrentThumbprint)
+    AzureTenantID: '$(TenantID)'
+    AzureClientID: '$(SigningClientId)'
+    AzureClientSecret: '$(SigningSecret)'
+    ExcludeVisualStudioCredential: true
+    ExcludeVisualStudioCodeCredential: true
+    ExcludeAzureCliCredential: true
+    ExcludeAzurePowerShellCredential: true
+    Endpoint: 'https://weu.codesigning.azure.net/'
+    CodeSigningAccountName: 'sdl-limited'
+    CertificateProfileName: 'Codesigning'
+    FilesFolder: $(Build.ArtifactStagingDirectory)
+    FilesFolderFilter: 'vsix'
+    FilesFolderRecurse: true
+    FilesFolderDepth: '5'
+    FileDigest: 'SHA256'
+    TimestampRfc3161: 'http://timestamp.acs.microsoft.com'
+    TimestampDigest: 'SHA256'
+    description: 'Trados Studio Templates'
 
 - task: PublishPipelineArtifact@1
   inputs:
