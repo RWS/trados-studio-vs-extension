@@ -53,13 +53,6 @@ steps:
     vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
     includeNuGetOrg: true
 
-- task: UniversalPackages@0
-  displayName: 'signing tools'
-  inputs:
-    vstsFeed: '35b7ee7d-77cc-45b7-97ec-af5915143636'
-    vstsFeedPackage: 'ab6a7eee-f4d3-4e0a-8e9a-906cce713a29'
-    vstsPackageVersion: '1.1.0'
-
 - task: PowerShell@2
   displayName: 'Apply version to vsix'
   inputs:
@@ -81,27 +74,27 @@ steps:
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: TrustedSigning@0
-  displayName: Sign with Trusted Signing
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnet sign'
   inputs:
-    AzureTenantID: '$(TenantID)'
-    AzureClientID: '$(SigningClientId)'
-    AzureClientSecret: '$(SigningSecret)'
-    ExcludeVisualStudioCredential: true
-    ExcludeVisualStudioCodeCredential: true
-    ExcludeAzureCliCredential: true
-    ExcludeAzurePowerShellCredential: true
-    Endpoint: 'https://weu.codesigning.azure.net/'
-    CodeSigningAccountName: 'sdl-limited'
-    CertificateProfileName: 'Codesigning'
-    FilesFolder: $(Build.ArtifactStagingDirectory)
-    FilesFolderFilter: 'vsix'
-    FilesFolderRecurse: true
-    FilesFolderDepth: '5'
-    FileDigest: 'SHA256'
-    TimestampRfc3161: 'http://timestamp.acs.microsoft.com'
-    TimestampDigest: 'SHA256'
-    description: 'Trados Studio Templates'
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'install --global sign --version 0.9.1-beta.24361.2'
+
+- task: PowerShell@2
+  displayName: 'Sign with Trusted Signing'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $vsix="$env:Build_ArtifactStagingDirectory\TradosStudio18Templates.vsix"
+      $tse="https://weu.codesigning.azure.net"
+      $tsa="sdl-limited"
+      $tscp="Codesigning"
+      
+      & "$env:USERPROFILE\.dotnet\tools\sign.exe" code trusted-signing $vsix -tse $tse -tsa $tsa -tscp $tscp -mici $env:SigningClientId -t 'http://timestamp.acs.microsoft.com'
+    pwsh: true
+  env:
+    SigningClientId: $(SigningClientId)
 
 - task: PublishPipelineArtifact@1
   inputs:
