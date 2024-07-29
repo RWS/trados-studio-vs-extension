@@ -91,10 +91,12 @@ steps:
       $tsa="sdl-limited"
       $tscp="Codesigning"
       
-      & "$env:USERPROFILE\.dotnet\tools\sign.exe" code trusted-signing $vsix -tse $tse -tsa $tsa -tscp $tscp -mici $env:SigningClientId -t 'http://timestamp.acs.microsoft.com'
+      & "$env:USERPROFILE\.dotnet\tools\sign.exe" code trusted-signing $vsix -tse $tse -tsa $tsa -tscp $tscp -t 'http://timestamp.acs.microsoft.com'
     pwsh: true
   env:
-    SigningClientId: $(SigningClientId)
+    AZURE_CLIENT_ID: $(SigningClientId)
+    AZURE_CLIENT_SECRET: $(SigningSecret)
+    AZURE_TENANT_ID: $(TenantID)
 
 - task: PublishPipelineArtifact@1
   inputs:
