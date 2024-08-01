@@ -53,13 +53,6 @@ steps:
     vstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
     includeNuGetOrg: true
 
-- task: UniversalPackages@0
-  displayName: 'signing tools'
-  inputs:
-    vstsFeed: '35b7ee7d-77cc-45b7-97ec-af5915143636'
-    vstsFeedPackage: 'ab6a7eee-f4d3-4e0a-8e9a-906cce713a29'
-    vstsPackageVersion: '1.1.0'
-
 - task: PowerShell@2
   displayName: 'Apply version to vsix'
   inputs:
@@ -81,16 +74,29 @@ steps:
     Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PowerShell@2
-  displayName: 'sign vsix package'
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnet sign'
   inputs:
-    targetType: filePath
-    filePath: './build/tasks/sign-vsix-package/sign-vsix-package.ps1'
-    arguments: '$(Build.ArtifactStagingDirectory)\$(InstallerDisplayName)'
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'install --global sign --version 0.9.1-beta.24361.2'
+
+- task: PowerShell@2
+  displayName: 'Sign with Trusted Signing'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $vsix="$env:Build_ArtifactStagingDirectory\TradosStudio18Templates.vsix"
+      $tse="https://weu.codesigning.azure.net"
+      $tsa="sdl-limited"
+      $tscp="Codesigning"
+      
+      & "$env:USERPROFILE\.dotnet\tools\sign.exe" code trusted-signing $vsix -tse $tse -tsa $tsa -tscp $tscp -t 'http://timestamp.acs.microsoft.com'
+    pwsh: true
   env:
-    SDLPLCAuthenticode: $(SDLPLCAuthenticode)
-    SDLPLCAuthenticodeKey: $(SDLPLCAuthenticodeKey)
-    CurrentThumbprint: $(CurrentThumbprint)
+    AZURE_CLIENT_ID: $(SigningClientId)
+    AZURE_CLIENT_SECRET: $(SigningSecret)
+    AZURE_TENANT_ID: $(TenantID)
 
 - task: PublishPipelineArtifact@1
   inputs:
