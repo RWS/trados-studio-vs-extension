@@ -34,16 +34,12 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
       
-    - name: add sdlnuget
-      run: dotnet nuget add source $SDL_NUGET --username az --password $NUGET_AUTH_TOKEN
-      env:
-        SDL_NUGET: ${{ vars.SDL_NUGET }}
-        NUGET_AUTH_TOKEN: ${{ secrets.AZURE_ARTIFACT_PAT }} 
+
       
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test $env:Solution_Name 
+      run: dotnet test $env:Solution_Name --api-key AzureArtifacts
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
