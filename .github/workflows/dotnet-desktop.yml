@@ -26,7 +26,10 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-
+        source-url: ${{ env.SDL_NUGET }}
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.AZURE_ARTIFACT_PAT }} 
+    
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
