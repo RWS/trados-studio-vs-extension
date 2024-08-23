@@ -35,16 +35,6 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       
 
-    # Install NuGet CLI
-    - name: Install NuGet CLI
-      run: |
-        choco install nuget.commandline
-
-    # Authenticate with Azure Artifacts
-    - name: Authenticate with Azure Artifacts
-      run: |
-        nuget sources add -name "AzureArtifacts" -source "${{ vars.SDL_NUGET }}" -username "AzureArtifacts" -password "${{ secrets.AZURE_ARTIFACT_PAT }}"
-    
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
 
