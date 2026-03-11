@@ -40,7 +40,7 @@ steps:
     artifactName: 'binaries'
     buildVersionToDownload: 'latestFromBranch'
     targetPath: '$(X64PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
-    runBranch: 'refs/heads/Release/19.0.0'
+    runBranch: 'refs/heads/master'
     tags: 'Package'
 
 - task: NuGetToolInstaller@0
