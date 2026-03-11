@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("TemplatesVSIXUnitTest")]
@@ -7,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TemplatesVSIXUnitTest")]
-[assembly: AssemblyCopyright("Copyright © 2011 - 2024 SDL as part of the RWS Holdings Plc group of companies(\"RWS Group\")")]
+[assembly: AssemblyCopyright("Copyright © 2011 - 2026 SDL as part of the RWS Holdings Plc group of companies(\"RWS Group\")")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
