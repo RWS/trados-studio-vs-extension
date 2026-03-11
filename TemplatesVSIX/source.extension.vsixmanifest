@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="6D87597D-63A9-4A1C-BB39-A970AD731ED1" Version="18.0.0" Language="en-US" Publisher="RWS" />
-        <DisplayName>Trados Studio 18 templates for Visual Studio 2022</DisplayName>
-        <Description xml:space="preserve">Visual Studio templates for  Trados Studio 18 Copyright © 2011 - 2024  SDL Limited (a part of the RWS Holdings Plc group)</Description>
-        <MoreInfo>http://appstore.sdl.com/language/developers</MoreInfo>
+        <Identity Id="6D87597D-63A9-4A1C-BB39-A970AD731ED1" Version="19.0.0" Language="en-US" Publisher="RWS" />
+        <DisplayName>Trados Studio 19 templates for Visual Studio 2022</DisplayName>
+        <Description xml:space="preserve">Visual Studio templates for  Trados Studio 19 Copyright © 2011 - 2026  SDL Limited (a part of the RWS Holdings Plc group)</Description>
+        <MoreInfo>https://developers.rws.com/</MoreInfo>
         <License>SDL_Trados_Studio_SDK_10b.rtf</License>
         <Icon>TradosStudio-components.ico</Icon>
         <PreviewImage>TradosStudio-components.ico</PreviewImage>
@@ -31,9 +31,9 @@
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Custom Batch Task" d:TargetPath="|SDL Custom Batch Task;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Terminology Provider" d:TargetPath="|SDL Terminology Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Trados Studio" d:TargetPath="|SDL Trados Studio;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SDL Translation Provider" d:TargetPath="|SDL Translation Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Trados Custom Batch Task" d:TargetPath="|Trados Custom Batch Task;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Trados Terminology Provider" d:TargetPath="|Trados Terminology Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Trados Studio" d:TargetPath="|Trados Studio;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="Trados Translation Provider" d:TargetPath="|Trados Translation Provider;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     </Assets>
 </PackageManifest>

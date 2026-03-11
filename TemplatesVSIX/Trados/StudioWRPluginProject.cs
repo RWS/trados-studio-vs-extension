@@ -11,8 +11,8 @@ namespace TemplatesVSIX.Trados
 		{
 			_project = new StudioPluginProject(projectFile,
 				new TargetFrameworkPatch("v4.8"),
-				new ReferencePatch("18"),
-				new DeploymentPathPatch("18"),
+				new ReferencePatch("19"),
+				new DeploymentPathPatch("19"),
 				new PluginFrameworkPatch("2.1.0", "18.0.1")
 			);
 		}

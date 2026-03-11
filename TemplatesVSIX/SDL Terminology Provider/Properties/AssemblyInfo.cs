@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SDL Terminology Provider")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SDL")]
+[assembly: AssemblyCompany("SDL Limited (a part of the RWS Holdings plc group)")]
 [assembly: AssemblyProduct("SDL Terminology Provider")]
-[assembly: AssemblyCopyright("Copyright © 2011 - 2024 SDL as part of the RWS Holdings Plc group of companies (\"RWS Group\")")]
+[assembly: AssemblyCopyright("Copyright © 2011 - 2026 RWS Holdings plc or affiliates.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

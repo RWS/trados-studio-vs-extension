@@ -33,7 +33,7 @@ namespace TemplatesVSIX.Trados.Patches
 			else
 			{
 				reference.HintPath =
-					$@"$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio{_newVersion}\{reference.Include.Name}.dll";
+					$@"$(ProgramFiles)\Trados\Trados Studio\Studio{_newVersion}\{reference.Include.Name}.dll";
 
 				reference.DeleteElement("Private");
 				reference.DeleteElement("SpecificVersion");

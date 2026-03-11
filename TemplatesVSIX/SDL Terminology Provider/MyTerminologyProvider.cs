@@ -61,12 +61,7 @@ namespace $safeprojectname$
         public Entry GetEntry(int id)
         {
             throw new NotImplementedException();
-        }
-
-        public Entry GetEntry(int id, IEnumerable<ILanguage> languages)
-        {
-            throw new NotImplementedException();
-        }
+        }        
 
         public IList<FilterDefinition> GetFilters()
         {
@@ -81,12 +76,7 @@ namespace $safeprojectname$
         public bool Initialize()
         {
             throw new NotImplementedException();
-        }
-
-        public bool Initialize(TerminologyProviderCredential credential)
-        {
-            throw new NotImplementedException();
-        }
+        }        
 
         public bool IsProviderUpToDate()
         {
