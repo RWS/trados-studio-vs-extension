@@ -21,13 +21,13 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 0
     
     # Install the .NET Core workload
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v6
       with:
         dotnet-version: 8.0.x
         source-url: ${{ vars.SDL_NUGET }}
@@ -35,12 +35,33 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.AZURE_ARTIFACT_PAT }} 
 
     - name: Download an artifact from an Azure Pipeline
-      uses: git-for-windows/get-azure-pipelines-artifact@v0
-      with:
-        repository: sdl/TradosStudio
-        definitionId: 1258
-        artifact: binaries
-        path: '$(ProgramFiles)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
+      shell: pwsh
+      env:
+        AZURE_DEVOPS_PAT: ${{ secrets.AZURE_ARTIFACT_PAT }}
+      run: |
+        $org         = "sdl"
+        $project     = "TradosStudio"
+        $definitionId = 1258
+        $artifactName = "binaries"
+        $targetPath   = "$env:ProgramFiles\Trados\Trados Studio\Studio$env:StudioProductIdentifier"
+
+        $base64Auth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$env:AZURE_DEVOPS_PAT"))
+        $headers    = @{ Authorization = "Basic $base64Auth" }
+
+        # Get the latest successful build for this pipeline definition
+        $buildsUrl = "https://dev.azure.com/$org/$project/_apis/build/builds?definitions=$definitionId&resultFilter=succeeded&`$top=1&api-version=7.1"
+        $builds    = Invoke-RestMethod -Uri $buildsUrl -Headers $headers
+        $buildId   = $builds.value[0].id
+        Write-Host "Using build $buildId"
+
+        # Download the artifact as a zip
+        $zipPath     = "$env:TEMP\artifact.zip"
+        $artifactUrl = "https://dev.azure.com/$org/$project/_apis/build/builds/$buildId/artifacts?artifactName=$artifactName&api-version=7.1&`$format=zip"
+        Invoke-WebRequest -Uri $artifactUrl -Headers $headers -OutFile $zipPath
+
+        # Extract into the target path
+        New-Item -ItemType Directory -Force -Path $targetPath | Out-Null
+        Expand-Archive -Path $zipPath -DestinationPath $targetPath -Force
 
     
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
