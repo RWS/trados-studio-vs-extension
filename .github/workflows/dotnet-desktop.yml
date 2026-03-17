@@ -126,10 +126,25 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore legacy NuGet packages (packages.config)
+      shell: pwsh
+      run: |
+        Write-Host "[debug] Restoring packages.config dependencies with nuget.exe"
+        nuget restore "TemplatesVSIX/TemplatesVSIX.sln" -NonInteractive
+
+        $sdlKeyPath = "TemplatesVSIX/packages/SDLKeys.2.0.0/tools/sdl.snk"
+        if (-not (Test-Path -Path $sdlKeyPath)) {
+          throw "Expected signing key file not found after restore: $sdlKeyPath"
+        }
+        Write-Host "[debug] Found signing key file: $sdlKeyPath"
       
 
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release /p:RestorePackagesConfig=true
 
     - name: build the application
       run: msbuild $env:Solution_Name /t:Build /p:Configuration=Release
