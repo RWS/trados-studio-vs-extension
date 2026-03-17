@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
 
 env:
-  StudioProductIdentifier: 18
+  StudioProductIdentifier: 19
 
 jobs:
 
@@ -25,12 +25,6 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: set X86PATH
-      run: echo "{X86PATH}={$ProgramFiles(x86)}" >> "$GITHUB_ENV"
-
-    - name: validate X86PATH
-      run: echo $X86PATH
-
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
@@ -41,12 +35,12 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.AZURE_ARTIFACT_PAT }} 
 
     - name: Download an artifact from an Azure Pipeline
-      uses: git-for-windows/get-azure-pipelines-artifact@v0.3.1
+      uses: git-for-windows/get-azure-pipelines-artifact@v0
       with:
         repository: sdl/TradosStudio
         definitionId: 1258
         artifact: binaries
-        path: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
+        path: '$(ProgramFiles)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
 
     
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
