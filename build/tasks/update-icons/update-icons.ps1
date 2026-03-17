@@ -11,7 +11,7 @@ $targetFolder = [System.IO.Path]::GetFullPath($targetFolder)
 
 $iconList = Get-ChildItem -Path $targetFolder -Filter "SDL*.ico" -Recurse
 
-$srcIcon="$PSScriptRoot\..\..\..\..\newicon.ico"
+$srcIcon=[System.IO.Path]::GetFullPath("$PSScriptRoot\..\..\..\TemplatesVSIX\TradosStudio-components.ico")
 
 if (Test-Path $srcIcon)
 {
