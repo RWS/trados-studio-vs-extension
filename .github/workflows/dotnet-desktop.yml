@@ -153,7 +153,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: TemplatesVSIX
-        path: TemplatesVSIX/bin/Release/
+        path: TemplatesVSIX/bin/Release/*.vsix
         if-no-files-found: error
 
 
