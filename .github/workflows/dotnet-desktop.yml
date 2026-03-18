@@ -149,5 +149,12 @@ jobs:
     - name: build the application
       run: msbuild $env:Solution_Name /t:Build /p:Configuration=Release
 
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TemplatesVSIX
+        path: TemplatesVSIX/bin/Release/
+        if-no-files-found: error
+
 
 
