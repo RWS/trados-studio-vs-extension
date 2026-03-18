@@ -1,13 +1,14 @@
 name: .NET Core Desktop
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 env:
-  StudioProductIdentifier: 18
+  StudioProductIdentifier: 19
 
 jobs:
 
@@ -20,19 +21,13 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 0
     
-    - name: set X86PATH
-      run: echo "{X86PATH}={$ProgramFiles(x86)}" >> "$GITHUB_ENV"
-
-    - name: validate X86PATH
-      run: echo $X86PATH
-
     # Install the .NET Core workload
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: 8.0.x
         source-url: ${{ vars.SDL_NUGET }}
@@ -40,24 +35,126 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.AZURE_ARTIFACT_PAT }} 
 
     - name: Download an artifact from an Azure Pipeline
-      uses: git-for-windows/get-azure-pipelines-artifact@v0.3.1
-      with:
-        repository: sdl/TradosStudio
-        definitionId: 1258
-        artifact: binaries
-        path: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
+      shell: pwsh
+      env:
+        AZURE_DEVOPS_PAT: ${{ secrets.AZURE_ARTIFACT_PAT }}
+      run: |
+        $ErrorActionPreference = "Stop"
+
+        try {
+          Write-Host "[debug] Starting Azure artifact download step"
+          $org          = "sdl"
+          $project      = "TradosStudio"
+          $definitionId = 1258
+          $artifactName = "binaries"
+          $targetPath   = "$env:ProgramFiles\Trados\Trados Studio\Studio$env:StudioProductIdentifier"
+          $zipPath      = "$env:TEMP\artifact-$artifactName.zip"
+          Write-Host "[debug] Organization: $org | Project: $project | DefinitionId: $definitionId | Artifact: $artifactName"
+          Write-Host "[debug] Target path: $targetPath"
+          Write-Host "[debug] Zip path: $zipPath"
+
+          if ([string]::IsNullOrWhiteSpace($env:AZURE_DEVOPS_PAT)) {
+            throw "AZURE_DEVOPS_PAT is missing. Ensure the AZURE_ARTIFACT_PAT secret is configured."
+          }
+          Write-Host "[debug] PAT secret is present"
+
+          $base64Auth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$env:AZURE_DEVOPS_PAT"))
+          $headers    = @{ Authorization = "Basic $base64Auth" }
+
+          # Get the latest successful build for this pipeline definition
+          $buildsUrl = "https://dev.azure.com/$org/$project/_apis/build/builds?definitions=$definitionId&resultFilter=succeeded&`$top=1&api-version=7.1"
+          Write-Host "[debug] Requesting builds from: $buildsUrl"
+          $builds    = Invoke-RestMethod -Uri $buildsUrl -Headers $headers
+          Write-Host "[debug] Builds API returned count: $($builds.count)"
+
+          if (-not $builds.value -or $builds.count -lt 1) {
+            throw "No successful builds found for definition id $definitionId in $org/$project."
+          }
+
+          $buildId = $builds.value[0].id
+          if (-not $buildId) {
+            throw "Build lookup succeeded but no build id was returned."
+          }
+          Write-Host "Using build $buildId"
+
+          # Resolve artifact metadata first, then use its download URL
+          $artifactMetaUrl = "https://dev.azure.com/$org/$project/_apis/build/builds/$buildId/artifacts?artifactName=$artifactName&api-version=7.1"
+          Write-Host "[debug] Requesting artifact metadata from: $artifactMetaUrl"
+          $artifactMeta    = Invoke-RestMethod -Uri $artifactMetaUrl -Headers $headers
+          $downloadUrl     = $artifactMeta.resource.downloadUrl
+          Write-Host "[debug] Artifact metadata resolved"
+
+          if ([string]::IsNullOrWhiteSpace($downloadUrl)) {
+            throw "Artifact metadata did not include resource.downloadUrl for '$artifactName'."
+          }
+          Write-Host "[debug] Download URL was returned"
+
+          if (Test-Path -Path $zipPath) {
+            Write-Host "[debug] Existing zip found, removing: $zipPath"
+            Remove-Item -Path $zipPath -Force
+          }
+
+          Write-Host "[debug] Downloading artifact zip"
+          Invoke-WebRequest -Uri $downloadUrl -Headers $headers -OutFile $zipPath
+          Write-Host "[debug] Download request completed"
+
+          if (-not (Test-Path -Path $zipPath)) {
+            throw "Artifact download failed: zip file was not created at $zipPath."
+          }
+          if ((Get-Item -Path $zipPath).Length -le 0) {
+            throw "Artifact download failed: zip file is empty at $zipPath."
+          }
+          Write-Host "[debug] Zip size (bytes): $((Get-Item -Path $zipPath).Length)"
+
+          # Extract into the target path
+          Write-Host "[debug] Creating target directory"
+          New-Item -ItemType Directory -Force -Path $targetPath | Out-Null
+          Write-Host "[debug] Extracting zip archive"
+          Expand-Archive -Path $zipPath -DestinationPath $targetPath -Force
+          Write-Host "Artifact extracted to $targetPath"
+          Write-Host "[debug] Artifact step completed successfully"
+        }
+        catch {
+          Write-Host "::error::Artifact download/extract failed."
+          Write-Host "::error::Message: $($_.Exception.Message)"
+          Write-Host "::error::Type: $($_.Exception.GetType().FullName)"
+          Write-Host "::error::ScriptStackTrace: $($_.ScriptStackTrace)"
+          throw
+        }
 
     
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore legacy NuGet packages (packages.config)
+      shell: pwsh
+      run: |
+        Write-Host "[debug] Restoring packages.config dependencies with nuget.exe"
+        nuget restore "TemplatesVSIX/TemplatesVSIX.sln" -NonInteractive
+
+        $sdlKeyPath = "TemplatesVSIX/packages/SDLKeys.2.0.0/tools/sdl.snk"
+        if (-not (Test-Path -Path $sdlKeyPath)) {
+          throw "Expected signing key file not found after restore: $sdlKeyPath"
+        }
+        Write-Host "[debug] Found signing key file: $sdlKeyPath"
       
 
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release /p:RestorePackagesConfig=true
 
     - name: build the application
       run: msbuild $env:Solution_Name /t:Build /p:Configuration=Release
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TemplatesVSIX
+        path: TemplatesVSIX/bin/Release/*.vsix
+        if-no-files-found: error
 
 
 
