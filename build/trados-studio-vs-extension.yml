@@ -14,22 +14,22 @@ variables:
 - name: buildPlatform
   value: 'Any CPU'
 - name: Version.MajorMinor
-  value: 18.0
+  value: 19.0
 - name: Version.Revision
   value: $[counter(variables['Version.Revision'], 0)]
 - name: StudioProductIdentifier
-  value: 18
+  value: 19
 - name: InstallerDisplayName
-  value: 'TradosStudio18Templates.vsix'
+  value: 'TradosStudio19Templates.vsix'
 
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
 steps:
 - task: PowerShell@2
-  displayName: 'Set x86path'
+  displayName: 'Set x64path'
   inputs:
     targetType: 'inline'
     script: |
-      Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
+      Write-Host "##vso[task.setvariable variable=x64path;]${Env:ProgramFiles}"
 
 - task: DownloadPipelineArtifact@2
   displayName: 'Download Trados Studio Binaries Pipeline Artifact'
@@ -39,8 +39,8 @@ steps:
     definition: '1258'
     artifactName: 'binaries'
     buildVersionToDownload: 'latestFromBranch'
-    targetPath: '$(X86PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
-    runBranch: 'refs/heads/Release/18.0.0'
+    targetPath: '$(X64PATH)\Trados\Trados Studio\Studio$(StudioProductIdentifier)'
+    runBranch: 'refs/heads/master'
     tags: 'Package'
 
 - task: NuGetToolInstaller@0
@@ -86,7 +86,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $vsix="$env:Build_ArtifactStagingDirectory\TradosStudio18Templates.vsix"
+      $vsix="$env:Build_ArtifactStagingDirectory\TradosStudio19Templates.vsix"
       $tse="https://weu.codesigning.azure.net"
       $tsa="sdl-limited"
       $tscp="Codesigning"

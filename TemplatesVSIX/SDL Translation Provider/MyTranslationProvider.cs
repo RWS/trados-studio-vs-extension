@@ -50,47 +50,12 @@ namespace $safeprojectname$
         public bool SupportsConcordanceSearch
         {
             get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsDocumentSearches
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsFilters
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsFuzzySearch
-        {
-            get { throw new NotImplementedException(); }
-        }
+        }                
 
         public bool SupportsLanguageDirection(LanguagePair languageDirection)
         {
             throw new NotImplementedException();
-        }
-
-        public bool SupportsMultipleResults
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsPenalties
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsPlaceables
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsScoring
-        {
-            get { throw new NotImplementedException(); }
-        }
+        }                 
 
         public bool SupportsSearchForTranslationUnits
         {
@@ -100,38 +65,18 @@ namespace $safeprojectname$
         public bool SupportsSourceConcordanceSearch
         {
             get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsStructureContext
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool SupportsTaggedInput
-        {
-            get { throw new NotImplementedException(); }
-        }
+        }     
 
         public bool SupportsTargetConcordanceSearch
         {
             get { throw new NotImplementedException(); }
         }
-
-        public bool SupportsTranslation
-        {
-            get { throw new NotImplementedException(); }
-        }
-
+        
         public bool SupportsUpdate
         {
             get { throw new NotImplementedException(); }
         }
-
-        public bool SupportsWordCounts
-        {
-            get { throw new NotImplementedException(); }
-        }
-
+        
         public TranslationMethod TranslationMethod
         {
             get { throw new NotImplementedException(); }

@@ -1,23 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Trados Terminology Provider (Studio18)</Name>
-    <Description>This project is used to enable different terminology providers for Trados Studio.</Description>
-    <Icon>SDL Terminology Provider.ico</Icon>
+    <Name>Trados Studio (Studio19)</Name>
+    <Description>This project enables you to extend or customize the user interface, or create custom functionalities for Trados Studio.</Description>
+    <Icon>SDL Trados Studio.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.8</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>3DD10BAB-2FB3-41BA-AE4D-33CAFC018F0E</TemplateID>
+    <TemplateID>36CB8B6E-61DE-41EB-84E8-257FB8B79077</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>Trados Terminology Provider</DefaultName>
+    <DefaultName>Trados Studio</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProvider.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProviderFactory.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProviderViewerWinFormsUI.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyTerminologyProviderWinFormsUI.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">MyCustomTradosStudio.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\PluginProperties.cs">PluginProperties.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="PluginResources.resx">PluginResources.resx</ProjectItem>

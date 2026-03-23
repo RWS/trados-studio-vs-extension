@@ -7,44 +7,32 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>packages\SDLKeys.2.0.0\tools\sdl.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <UseCodebase>true</UseCodebase>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
+    <UseCodebase>true</UseCodebase>  
+    <SignAssembly>true</SignAssembly> 
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>  
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>  
     <ApplicationIcon>TradosStudio-components.ico</ApplicationIcon>
+	  <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	  <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	  <SchemaVersion>2.0</SchemaVersion>
+	  <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+	  <ProjectGuid>{225B1893-816D-4FFF-8A06-ECE189FB1582}</ProjectGuid>
+	  <OutputType>Library</OutputType>
+	  <AppDesignerFolder>Properties</AppDesignerFolder>
+	  <RootNamespace>TemplatesVSIX</RootNamespace>
+	  <AssemblyName>TradosStudio19Templates</AssemblyName>
+	  <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+	  <GeneratePkgDefFile>true</GeneratePkgDefFile>
+	  <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+	  <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+	  <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+	  <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+	  <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+	  <StartAction>Program</StartAction>
+	  <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+	  <StartArguments>/rootsuffix Exp</StartArguments>
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{225B1893-816D-4FFF-8A06-ECE189FB1582}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TemplatesVSIX</RootNamespace>
-    <AssemblyName>TradosStudio18Templates</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <GeneratePkgDefFile>true</GeneratePkgDefFile>
-    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
-    <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
-    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
-    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
-    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
-    <StartAction>Program</StartAction>
-    <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
-    <StartArguments>/rootsuffix Exp</StartArguments>
-  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /> 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -105,37 +93,36 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="app.config" />
     <None Include="Packages\SDLKeys.2.0.0\tools\sdl.snk" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SDL Custom Batch Task\SDL Custom Batch Task.csproj">
+    <ProjectReference Include="SDL Custom Batch Task\Trados Custom Batch Task.csproj">
       <Project>{b50b23fd-89ca-40f2-9238-22718be19dc7}</Project>
-      <Name>SDL Custom Batch Task</Name>
+      <Name>Trados Custom Batch Task</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="SDL Terminology Provider\SDL Terminology Provider.csproj">
+    <ProjectReference Include="SDL Terminology Provider\Trados Terminology Provider.csproj">
       <Project>{a55be5a5-6abe-44d4-a3d3-fe0ff2879d06}</Project>
-      <Name>SDL Terminology Provider</Name>
+      <Name>Trados Terminology Provider</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="SDL Trados Studio\SDL Trados Studio.csproj">
+    <ProjectReference Include="SDL Trados Studio\Trados Studio.csproj">
       <Project>{4fb789ff-db33-440b-89ec-5ff49d430e55}</Project>
-      <Name>SDL Trados Studio</Name>
+      <Name>Trados Studio</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="SDL Translation Provider\SDL Translation Provider.csproj">
+    <ProjectReference Include="SDL Translation Provider\Trados Translation Provider.csproj">
       <Project>{6cd94677-b468-4608-b7eb-40f097a51098}</Project>
-      <Name>SDL Translation Provider</Name>
+      <Name>Trados Translation Provider</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
@@ -160,15 +147,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK">
-      <Version>17.1.32210.191</Version>
+      <Version>17.14.40265</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>17.1.4054</Version>
+      <Version>17.14.2120</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.Vsixsigntool">
-      <Version>16.2.29116.78</Version>
+      <Version>17.10.34916.79</Version>
     </PackageReference>
     <PackageReference Include="SDLKeys">
       <Version>2.0.0</Version>
