@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="BE9770DD-EF50-48E1-8BD5-16ECF69B6BCE" Version="19.0.0" Language="en-US" Publisher="RWS" />
+        <Identity Id="BE9770DD-EF50-48E1-8BD5-16ECF69B6BCE" Version="19.0.1" Language="en-US" Publisher="RWS" />
         <DisplayName>Trados Studio 19 templates for Visual Studio 2022</DisplayName>
         <Description xml:space="preserve">Visual Studio templates for  Trados Studio 19 Copyright © 2011 - 2026  SDL Limited (a part of the RWS Holdings Plc group)</Description>
         <MoreInfo>https://developers.rws.com/</MoreInfo>
